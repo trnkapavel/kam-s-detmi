@@ -20,6 +20,18 @@ export type EnergyLevel = "low" | "medium" | "high";
 export type Duration = "few_hours" | "half_day" | "full_day";
 export type ConflictResolver = "overlap" | "sequential" | "compromise" | "rotation";
 
+export type ActivityPlace = {
+  image: string;
+  images: string[];
+  rating: number;
+  reviewCount: number;
+  address: string;
+  priceHint: string;
+  openingHours: string;
+  highlights: string[];
+  mapsUrl: string;
+};
+
 export type Activity = {
   id: string;
   name: string;
@@ -40,6 +52,7 @@ export type Activity = {
   conflictResolvers: ConflictResolver[];
   coordinates?: { lat: number; lng: number };
   url?: string;
+  place?: ActivityPlace;
 };
 
 export type ChildMood = "calm" | "active" | "cranky";

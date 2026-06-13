@@ -146,7 +146,7 @@ export default function VysledkyPage() {
       )}
 
       <p className="animate-in px-1 text-[15px] leading-relaxed text-steel">
-        Tipy jsou orientační — ověř si aktuální otevírací dobu a ceny.
+        Tipy jsou orientační — fotky jsou z Wikimedia Commons, kde chybí zdroj, zobrazí se ilustrace. Ověř si aktuální otevírací dobu a ceny.
       </p>
 
       <Link href="/" onClick={handleNewCheckIn} className="block animate-in-up">

@@ -1,5 +1,6 @@
 import { readFileSync, readdirSync } from "fs";
 import { join } from "path";
+import { enrichActivities } from "@/lib/activity-places";
 import type { ActivitiesFile, Activity, Kraj } from "@/types";
 
 const DATA_DIR = join(process.cwd(), "data", "activities");
@@ -14,7 +15,8 @@ export function loadAllActivities(): Activity[] {
     (file) => file.endsWith(".json") && !file.endsWith(".example"),
   );
 
-  return files.flatMap((file) => loadActivitiesFile(file).activities);
+  const activities = files.flatMap((file) => loadActivitiesFile(file).activities);
+  return enrichActivities(activities);
 }
 
 export function loadActivitiesByKraj(kraj: Kraj): Activity[] {

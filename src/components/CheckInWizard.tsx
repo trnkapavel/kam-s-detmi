@@ -137,8 +137,8 @@ export function CheckInWizard() {
                 <Sparkles size={22} strokeWidth={2} aria-hidden="true" />
               </div>
               <div>
-                <h1 className="text-[26px] font-bold tracking-tight text-ink">Kam s dětmi</h1>
-                <p className="mt-0.5 text-[15px] text-steel">Check-in trvá do 2 minut</p>
+                <h1 className="text-[26px] font-bold tracking-tight text-ink">Pojďme naplánovat den</h1>
+                <p className="mt-0.5 text-[15px] text-steel">Pár otázek a máš tipy na míru</p>
               </div>
             </div>
           </GlassCard>

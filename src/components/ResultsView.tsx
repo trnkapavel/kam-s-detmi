@@ -11,7 +11,6 @@ import {
   Clock,
   Baby,
   PartyPopper,
-  ExternalLink,
 } from "@/lib/icons";
 import {
   energyLabel,
@@ -20,6 +19,7 @@ import {
   wantsSummary,
   weatherLabel,
 } from "@/lib/labels";
+import { ActivityPreview } from "@/components/results/ActivityPreview";
 import { GlassCard } from "@/components/ui/GlassCard";
 
 type ResultsSummaryProps = {
@@ -102,23 +102,9 @@ export function RecommendationCard({ recommendation, index }: RecommendationCard
         </span>
       </div>
 
-      <div className="space-y-5">
+      <div className="space-y-6">
         {recommendation.activities.map((activity) => (
-          <div key={activity.id}>
-            <h3 className="text-xl font-semibold text-ink">{activity.name}</h3>
-            <p className="mt-1.5 text-base leading-relaxed text-charcoal">{activity.description}</p>
-            {activity.url && (
-              <a
-                href={activity.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-1.5 text-base font-semibold text-link transition-colors hover:text-primary"
-              >
-                Více informací
-                <ExternalLink size={16} strokeWidth={2} aria-hidden="true" />
-              </a>
-            )}
-          </div>
+          <ActivityPreview key={activity.id} activity={activity} />
         ))}
       </div>
 

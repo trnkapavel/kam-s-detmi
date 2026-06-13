@@ -1,5 +1,5 @@
-import { CheckInWizard } from "@/components/CheckInWizard";
+import { HomeFlow } from "@/components/HomeFlow";
 
 export default function Home() {
-  return <CheckInWizard />;
+  return <HomeFlow />;
 }

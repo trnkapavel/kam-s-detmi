@@ -1,0 +1,643 @@
+{
+  "praha-zoo": {
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Prague_07-2016_Zoo_img12_Acinonyx_jubatus.jpg/1280px-Prague_07-2016_Zoo_img12_Acinonyx_jubatus.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Prague_07-2016_Zoo_img12_Acinonyx_jubatus.jpg/1280px-Prague_07-2016_Zoo_img12_Acinonyx_jubatus.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Prague_07-2016_Zoo_img10_chairlift.jpg/1280px-Prague_07-2016_Zoo_img10_chairlift.jpg"
+    ],
+    "rating": 4.7,
+    "reviewCount": 21400,
+    "address": "U Trojského zámku 120, Praha 7",
+    "priceHint": "od 280 Kč",
+    "openingHours": "9:00 – 18:00",
+    "highlights": [
+      "Kočárek OK",
+      "Kryté pavilony",
+      "Občerstvení",
+      "Celodenní program"
+    ]
+  },
+  "praha-aquapalace": {
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Autobus_VDL_Aquapalace_Praha.jpg/1280px-Autobus_VDL_Aquapalace_Praha.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Autobus_VDL_Aquapalace_Praha.jpg/1280px-Autobus_VDL_Aquapalace_Praha.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Opatov%2C_autobus_MAN_Aquapalace_Praha.jpg/1280px-Opatov%2C_autobus_MAN_Aquapalace_Praha.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Cestlice_Prazska_137_Aquapalace_Hotel.jpg/1280px-Cestlice_Prazska_137_Aquapalace_Hotel.jpg"
+    ],
+    "rating": 4.3,
+    "reviewCount": 9800,
+    "address": "Pražská 138, Čestlice",
+    "priceHint": "od 390 Kč / 2 hod",
+    "openingHours": "10:00 – 22:00",
+    "highlights": [
+      "Indoor + venkovní část",
+      "Tobogány",
+      "Dětský bazén",
+      "Sauny pro rodiče"
+    ]
+  },
+  "praha-stromovka": {
+    "rating": 4.6,
+    "reviewCount": 5200,
+    "address": "Praha 7 – Bubeneč",
+    "priceHint": "Zdarma",
+    "openingHours": "Nonstop",
+    "highlights": [
+      "Hřiště",
+      "Rybníky",
+      "Kočárek OK",
+      "Kolo"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Praha%2C_Bubene%C4%8D%2C_podzimn%C3%AD_Stromovka.jpg/1280px-Praha%2C_Bubene%C4%8D%2C_podzimn%C3%AD_Stromovka.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Praha%2C_Bubene%C4%8D%2C_podzimn%C3%AD_Stromovka.jpg/1280px-Praha%2C_Bubene%C4%8D%2C_podzimn%C3%AD_Stromovka.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Praha%2C_Bubene%C4%8D%2C_Stromovka%2C_zasn%C4%9B%C5%BEen%C3%BD_park_III.JPG/1280px-Praha%2C_Bubene%C4%8D%2C_Stromovka%2C_zasn%C4%9B%C5%BEen%C3%BD_park_III.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Stromovka%2C_piknikov%C3%A1_louka%2C_ko%C4%8D%C3%A1r.jpg/1280px-Stromovka%2C_piknikov%C3%A1_louka%2C_ko%C4%8D%C3%A1r.jpg"
+    ]
+  },
+  "praha-podoli-bazen": {
+    "rating": 4.4,
+    "reviewCount": 2100,
+    "address": "Podolská 74, Praha 4",
+    "priceHint": "od 160 Kč",
+    "openingHours": "6:00 – 22:00",
+    "highlights": [
+      "Krytý bazén",
+      "Sauna",
+      "Klidnější než aquapark"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Praha%2C_Hlubo%C4%8Depy%2C_Zl%C3%ADchov%2C_pohled_na_plaveck%C3%BD_stadion_v_Podol%C3%AD.JPG/1280px-Praha%2C_Hlubo%C4%8Depy%2C_Zl%C3%ADchov%2C_pohled_na_plaveck%C3%BD_stadion_v_Podol%C3%AD.JPG",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Praha%2C_Hlubo%C4%8Depy%2C_Zl%C3%ADchov%2C_pohled_na_plaveck%C3%BD_stadion_v_Podol%C3%AD.JPG/1280px-Praha%2C_Hlubo%C4%8Depy%2C_Zl%C3%ADchov%2C_pohled_na_plaveck%C3%BD_stadion_v_Podol%C3%AD.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Podolsk%C3%BD_baz%C3%A9n%2C_z_D%C4%9Bv%C3%ADna.jpg/1280px-Podolsk%C3%BD_baz%C3%A9n%2C_z_D%C4%9Bv%C3%ADna.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Podolska_Cementarna_cca_1920.jpg/1280px-Podolska_Cementarna_cca_1920.jpg"
+    ]
+  },
+  "praha-hostivarska-prehrada": {
+    "rating": 4.5,
+    "reviewCount": 3400,
+    "address": "Hostivař, Praha 15",
+    "priceHint": "Zdarma",
+    "openingHours": "Denně",
+    "highlights": [
+      "Koupání",
+      "Lesní cesty",
+      "Piknik"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Hostiva%C5%99_Dam%2C_Prague_Hostiva%C5%99.jpg/1280px-Hostiva%C5%99_Dam%2C_Prague_Hostiva%C5%99.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Hostiva%C5%99_Dam%2C_Prague_Hostiva%C5%99.jpg/1280px-Hostiva%C5%99_Dam%2C_Prague_Hostiva%C5%99.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Road_by_Hostiva%C5%99_Dam%2C_Prague_Hostiva%C5%99.jpg/1280px-Road_by_Hostiva%C5%99_Dam%2C_Prague_Hostiva%C5%99.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Hostiva%C5%99%2C_Vyhl%C3%ADdkov%C3%A1.jpg/1280px-Hostiva%C5%99%2C_Vyhl%C3%ADdkov%C3%A1.jpg"
+    ]
+  },
+  "praha-kunraticky-les": {
+    "address": "Praha",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Prague_Kunraticky_Forest_Meadow2.jpg/1280px-Prague_Kunraticky_Forest_Meadow2.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Prague_Kunraticky_Forest_Meadow2.jpg/1280px-Prague_Kunraticky_Forest_Meadow2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Kunratick%C3%BD_Forest_south%2C_Prague_Kunratice.jpg/1280px-Kunratick%C3%BD_Forest_south%2C_Prague_Kunratice.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Praha%2C_Kunratice%2C_Kunratick%C3%BD_les%2C_zimn%C3%AD_slunce.jpg/1280px-Praha%2C_Kunratice%2C_Kunratick%C3%BD_les%2C_zimn%C3%AD_slunce.jpg"
+    ]
+  },
+  "praha-ntm": {
+    "rating": 4.5,
+    "reviewCount": 4100,
+    "address": "Výstaviště 1, Praha 7",
+    "priceHint": "od 220 Kč",
+    "openingHours": "9:00 – 18:00",
+    "highlights": [
+      "Interaktivní expozice",
+      "Indoor",
+      "Věda a technika"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Aero_HC-2_Heli_Baby%2C_National_Technical_Museum_%28Prague%29.JPG/1280px-Aero_HC-2_Heli_Baby%2C_National_Technical_Museum_%28Prague%29.JPG",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Aero_HC-2_Heli_Baby%2C_National_Technical_Museum_%28Prague%29.JPG/1280px-Aero_HC-2_Heli_Baby%2C_National_Technical_Museum_%28Prague%29.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/View_in_the_National_Technical_Museum_%28Prague%29.jpg/1280px-View_in_the_National_Technical_Museum_%28Prague%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/National_Technical_Museum_entrance%2C_Prague.jpg/1280px-National_Technical_Museum_entrance%2C_Prague.jpg"
+    ]
+  },
+  "praha-divoka-sarka": {
+    "address": "Praha",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Prague-Divok%C3%A1-%C5%A0%C3%A1rka-tram-loop20130319a.JPG/1280px-Prague-Divok%C3%A1-%C5%A0%C3%A1rka-tram-loop20130319a.JPG",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Prague-Divok%C3%A1-%C5%A0%C3%A1rka-tram-loop20130319a.JPG/1280px-Prague-Divok%C3%A1-%C5%A0%C3%A1rka-tram-loop20130319a.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Prague-Divok%C3%A1-%C5%A0%C3%A1rka-tram-loop20130319b.JPG/1280px-Prague-Divok%C3%A1-%C5%A0%C3%A1rka-tram-loop20130319b.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Divok%C3%A1_%C5%A0%C3%A1rka_-_panoramio_%2816%29.jpg/1280px-Divok%C3%A1_%C5%A0%C3%A1rka_-_panoramio_%2816%29.jpg"
+    ]
+  },
+  "praha-petrin": {
+    "rating": 4.7,
+    "reviewCount": 8900,
+    "address": "Petřín, Praha 1",
+    "priceHint": "Lanovka od 60 Kč",
+    "openingHours": "Dle atrakcí",
+    "highlights": [
+      "Rozhledna",
+      "Park",
+      "Lanovka"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Pet%C5%99%C3%ADn_tower_05_2018.jpg/1280px-Pet%C5%99%C3%ADn_tower_05_2018.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Pet%C5%99%C3%ADn_tower_05_2018.jpg/1280px-Pet%C5%99%C3%ADn_tower_05_2018.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Prague_07-2016_View_from_Petrinska_Tower_img2.jpg/1280px-Prague_07-2016_View_from_Petrinska_Tower_img2.jpg"
+    ]
+  },
+  "praha-hradcany": {
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/PragueCathedral03.jpg/1280px-PragueCathedral03.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/PragueCathedral03.jpg/1280px-PragueCathedral03.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Guard_at_the_Prague_castle%2C_Prague_-_7620_%28cropped%29.jpg/1280px-Guard_at_the_Prague_castle%2C_Prague_-_7620_%28cropped%29.jpg"
+    ],
+    "rating": 4.8,
+    "reviewCount": 45200,
+    "address": "Hradčany, Praha 1",
+    "priceHint": "Procházka zdarma",
+    "openingHours": "Areál dle sezóny",
+    "highlights": [
+      "Výhledy",
+      "Zahrady",
+      "Historické uličky",
+      "Krátké okruhy"
+    ]
+  },
+  "praha-motol-koupaliste": {
+    "address": "Praha",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Body_coloration_and_mechanisms_of_colour_production_in_Archelosauria_-_the_case_of_deirocheline_turtles.pdf/page1-960px-Body_coloration_and_mechanisms_of_colour_production_in_Archelosauria_-_the_case_of_deirocheline_turtles.pdf.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Body_coloration_and_mechanisms_of_colour_production_in_Archelosauria_-_the_case_of_deirocheline_turtles.pdf/page1-960px-Body_coloration_and_mechanisms_of_colour_production_in_Archelosauria_-_the_case_of_deirocheline_turtles.pdf.jpg"
+    ]
+  },
+  "praha-jumppark-jarov": {
+    "address": "Praha",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "",
+    "images": []
+  },
+  "praha-planetarium": {
+    "address": "Praha",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Praha%2C_Stromovka%2C_planet%C3%A1rium.jpg/1280px-Praha%2C_Stromovka%2C_planet%C3%A1rium.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Praha%2C_Stromovka%2C_planet%C3%A1rium.jpg/1280px-Praha%2C_Stromovka%2C_planet%C3%A1rium.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Praha%2C_Stromovka%2C_planet%C3%A1rium_EX.jpg/1280px-Praha%2C_Stromovka%2C_planet%C3%A1rium_EX.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Planet%C3%A1rium_stromovka.jpg/1280px-Planet%C3%A1rium_stromovka.jpg"
+    ]
+  },
+  "praha-botanicka-zahrada": {
+    "rating": 4.6,
+    "reviewCount": 3800,
+    "address": "Troja, Praha 7",
+    "priceHint": "od 150 Kč",
+    "openingHours": "9:00 – 19:00",
+    "highlights": [
+      "Fata Morgana",
+      "Skleníky",
+      "OK v dešti"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Botanic_Garden3%2C_Prague_Troja.jpg/1280px-Botanic_Garden3%2C_Prague_Troja.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Botanic_Garden3%2C_Prague_Troja.jpg/1280px-Botanic_Garden3%2C_Prague_Troja.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Botanic_Garden_North%2C_Prague_Troja.jpg/1280px-Botanic_Garden_North%2C_Prague_Troja.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Botanic_Garden_North2%2C_Prague_Troja.jpg/1280px-Botanic_Garden_North2%2C_Prague_Troja.jpg"
+    ]
+  },
+  "praha-prokopske-udoli": {
+    "address": "Praha",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Praha%2C_Hlubo%C4%8Depy%2C_Prokopsk%C3%A9_%C3%BAdol%C3%AD_IV.JPG/1280px-Praha%2C_Hlubo%C4%8Depy%2C_Prokopsk%C3%A9_%C3%BAdol%C3%AD_IV.JPG",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Praha%2C_Hlubo%C4%8Depy%2C_Prokopsk%C3%A9_%C3%BAdol%C3%AD_IV.JPG/1280px-Praha%2C_Hlubo%C4%8Depy%2C_Prokopsk%C3%A9_%C3%BAdol%C3%AD_IV.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Overview_of_rock_at_nature_reserve_Prokopsk%C3%A9_%C3%BAdol%C3%AD_in_Hlubo%C4%8Depy%2C_Prague.jpg/1280px-Overview_of_rock_at_nature_reserve_Prokopsk%C3%A9_%C3%BAdol%C3%AD_in_Hlubo%C4%8Depy%2C_Prague.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Overview_of_top_of_hill_at_nature_reserve_Prokopsk%C3%A9_%C3%BAdol%C3%AD_in_Hlubo%C4%8Depy%2C_Prague.jpg/1280px-Overview_of_top_of_hill_at_nature_reserve_Prokopsk%C3%A9_%C3%BAdol%C3%AD_in_Hlubo%C4%8Depy%2C_Prague.jpg"
+    ]
+  },
+  "praha-staromestske-namesti": {
+    "address": "Praha",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Prague_Old_Town_Square%2C_Czech_Republic_-_Oct_2010.jpg/1280px-Prague_Old_Town_Square%2C_Czech_Republic_-_Oct_2010.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Prague_Old_Town_Square%2C_Czech_Republic_-_Oct_2010.jpg/1280px-Prague_Old_Town_Square%2C_Czech_Republic_-_Oct_2010.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Prague_07-2016_View_from_Old_Town_Hall_Tower_img3.jpg/1280px-Prague_07-2016_View_from_Old_Town_Hall_Tower_img3.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Prague%2C_Old_Town_Square%2C_COVID.jpg/1280px-Prague%2C_Old_Town_Square%2C_COVID.jpg"
+    ]
+  },
+  "praha-narodni-muzeum": {
+    "rating": 4.4,
+    "reviewCount": 6700,
+    "address": "Václavské nám. 68, Praha 1",
+    "priceHint": "od 200 Kč",
+    "openingHours": "10:00 – 18:00",
+    "highlights": [
+      "Indoor",
+      "Historie",
+      "Centrum města"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Wenceslas_square_Prague.jpg/1280px-Wenceslas_square_Prague.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Wenceslas_square_Prague.jpg/1280px-Wenceslas_square_Prague.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/2018-national_museum%2C_St._Vaclav_Square_panorama.jpg/1280px-2018-national_museum%2C_St._Vaclav_Square_panorama.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Wenceslas_Square_1989_%28NARA_24214888%29.jpg/1280px-Wenceslas_Square_1989_%28NARA_24214888%29.jpg"
+    ]
+  },
+  "praha-vysehrad": {
+    "address": "Praha",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/View_from_walls_of_Vysehrad_towards_Prague_Castle_745.jpg/1280px-View_from_walls_of_Vysehrad_towards_Prague_Castle_745.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/View_from_walls_of_Vysehrad_towards_Prague_Castle_745.jpg/1280px-View_from_walls_of_Vysehrad_towards_Prague_Castle_745.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Czech-2013-Prague-Vy%C5%A1ehrad-Statue_of_San_Sebastian.jpg/1280px-Czech-2013-Prague-Vy%C5%A1ehrad-Statue_of_San_Sebastian.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/View_toward_Prague_Castle_from_Vy%C5%A1ehrad_in_the_evening.JPG/1280px-View_toward_Prague_Castle_from_Vy%C5%A1ehrad_in_the_evening.JPG"
+    ]
+  },
+  "praha-detsky-ostrov": {
+    "address": "Praha",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Detsky_ostrov_1.jpg/1280px-Detsky_ostrov_1.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Detsky_ostrov_1.jpg/1280px-Detsky_ostrov_1.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/e/e2/Liebscher_Zidovsky_Ostrov_1890.PNG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Praha%2C_Sm%C3%ADchov%2C_D%C4%9Btsk%C3%BD_ostrov%2C_plavebn%C3%AD_komora.JPG/1280px-Praha%2C_Sm%C3%ADchov%2C_D%C4%9Btsk%C3%BD_ostrov%2C_plavebn%C3%AD_komora.JPG"
+    ]
+  },
+  "praha-hamr-zbraslav": {
+    "address": "Praha",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "",
+    "images": []
+  },
+  "praha-papilonia": {
+    "address": "Praha",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Papilonia_Brno-06.jpg/1280px-Papilonia_Brno-06.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Papilonia_Brno-06.jpg/1280px-Papilonia_Brno-06.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Papilonia_Brno-20.jpg/1280px-Papilonia_Brno-20.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Papilonia_Brno-31.jpg/1280px-Papilonia_Brno-31.jpg"
+    ]
+  },
+  "praha-letna": {
+    "address": "Praha",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Praha%2C_Letn%C3%A1%2C_Metronom.jpg/1280px-Praha%2C_Letn%C3%A1%2C_Metronom.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Praha%2C_Letn%C3%A1%2C_Metronom.jpg/1280px-Praha%2C_Letn%C3%A1%2C_Metronom.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Meteronom_at_Letn%C3%A1_Park_-_panoramio.jpg/1280px-Meteronom_at_Letn%C3%A1_Park_-_panoramio.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Meteronom_at_Letn%C3%A1_Park_-_panoramio_-_ekeidar.jpg/1280px-Meteronom_at_Letn%C3%A1_Park_-_panoramio_-_ekeidar.jpg"
+    ]
+  },
+  "praha-modranska-rokle": {
+    "address": "Praha",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Praha%2C_Mod%C5%99any%2C_Mod%C5%99ansk%C3%A1_rokle%2C_nau%C4%8Dn%C3%A1_stezka.JPG/1280px-Praha%2C_Mod%C5%99any%2C_Mod%C5%99ansk%C3%A1_rokle%2C_nau%C4%8Dn%C3%A1_stezka.JPG",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Praha%2C_Mod%C5%99any%2C_Mod%C5%99ansk%C3%A1_rokle%2C_nau%C4%8Dn%C3%A1_stezka.JPG/1280px-Praha%2C_Mod%C5%99any%2C_Mod%C5%99ansk%C3%A1_rokle%2C_nau%C4%8Dn%C3%A1_stezka.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Mod%C5%99any%2C_Gener%C3%A1la_%C5%A0i%C5%A1ky%2C_zast%C3%A1vka_Mod%C5%99ansk%C3%A1_rokle%2C_s%C3%ADdli%C5%A1t%C4%9B.jpg/1280px-Mod%C5%99any%2C_Gener%C3%A1la_%C5%A0i%C5%A1ky%2C_zast%C3%A1vka_Mod%C5%99ansk%C3%A1_rokle%2C_s%C3%ADdli%C5%A1t%C4%9B.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Mod%C5%99any%2C_tramvajov%C3%A1_zast%C3%A1vka_Mod%C5%99ansk%C3%A1_rokle_%2801%29.jpg/1280px-Mod%C5%99any%2C_tramvajov%C3%A1_zast%C3%A1vka_Mod%C5%99ansk%C3%A1_rokle_%2801%29.jpg"
+    ]
+  },
+  "praha-hamr-bulovka": {
+    "address": "Praha",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "",
+    "images": []
+  },
+  "praha-kralovstvi-ziraf": {
+    "address": "Praha",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/The_animal-lore_of_Shakespeare%27s_time_-_including_quadrupeds%2C_birds%2C_reptiles%2C_fish_and_insects_%28IA_animalloreofshak00phip%29.pdf/page1-500px-The_animal-lore_of_Shakespeare%27s_time_-_including_quadrupeds%2C_birds%2C_reptiles%2C_fish_and_insects_%28IA_animalloreofshak00phip%29.pdf.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/The_animal-lore_of_Shakespeare%27s_time_-_including_quadrupeds%2C_birds%2C_reptiles%2C_fish_and_insects_%28IA_animalloreofshak00phip%29.pdf/page1-500px-The_animal-lore_of_Shakespeare%27s_time_-_including_quadrupeds%2C_birds%2C_reptiles%2C_fish_and_insects_%28IA_animalloreofshak00phip%29.pdf.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Descriptive_geography_taught_by_means_of_map_drawing_%28IA_descriptivegeogr00wilk%29.pdf/page1-1280px-Descriptive_geography_taught_by_means_of_map_drawing_%28IA_descriptivegeogr00wilk%29.pdf.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Advice_on_the_care_of_the_eyes._The_present_state_of_ophthalmology_with_new_modes_of_curing_diseases_of_the_eye_and_remarks_on_the_causes_and_prevention_of_defective_vision_and_on_spectacles_%28IA_b29344499%29.pdf/page1-960px-thumbnail.pdf.jpg"
+    ]
+  },
+  "stredocesky-karlstejn": {
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Hrad_Karl%C5%A1tejn_00.jpg/1280px-Hrad_Karl%C5%A1tejn_00.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Hrad_Karl%C5%A1tejn_00.jpg/1280px-Hrad_Karl%C5%A1tejn_00.jpg"
+    ],
+    "rating": 4.6,
+    "reviewCount": 12800,
+    "address": "Karlštejn 172",
+    "priceHint": "od 270 Kč vstup",
+    "openingHours": "9:00 – 17:00",
+    "highlights": [
+      "Výlet vlakem",
+      "Procházka do kopce",
+      "Výhledy",
+      "Historický hrad"
+    ]
+  },
+  "stredocesky-kladno-koupaliste": {
+    "address": "Kladno",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Louck%C3%A1%2C_baz%C3%A9n.jpg/1280px-Louck%C3%A1%2C_baz%C3%A9n.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Louck%C3%A1%2C_baz%C3%A9n.jpg/1280px-Louck%C3%A1%2C_baz%C3%A9n.jpg"
+    ]
+  },
+  "stredocesky-skoda-museum": {
+    "address": "Mladá Boleslav",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/13-04-05-Skoda_Museum_Mlad%C3%A1_Boleslav_by_RalfR-009.jpg/1280px-13-04-05-Skoda_Museum_Mlad%C3%A1_Boleslav_by_RalfR-009.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/13-04-05-Skoda_Museum_Mlad%C3%A1_Boleslav_by_RalfR-009.jpg/1280px-13-04-05-Skoda_Museum_Mlad%C3%A1_Boleslav_by_RalfR-009.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/13-04-05-Skoda_Museum_Mlad%C3%A1_Boleslav_by_RalfR-014.jpg/1280px-13-04-05-Skoda_Museum_Mlad%C3%A1_Boleslav_by_RalfR-014.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/13-04-05-Skoda_Museum_Mlad%C3%A1_Boleslav_by_RalfR-015.jpg/1280px-13-04-05-Skoda_Museum_Mlad%C3%A1_Boleslav_by_RalfR-015.jpg"
+    ]
+  },
+  "stredocesky-konopiste": {
+    "address": "Benešov",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Konopi%C5%A1t%C4%9B_ch%C3%A2teau_near_Bene%C5%A1ov%2C_Czech_Republic.JPG/1280px-Konopi%C5%A1t%C4%9B_ch%C3%A2teau_near_Bene%C5%A1ov%2C_Czech_Republic.JPG",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Konopi%C5%A1t%C4%9B_ch%C3%A2teau_near_Bene%C5%A1ov%2C_Czech_Republic.JPG/1280px-Konopi%C5%A1t%C4%9B_ch%C3%A2teau_near_Bene%C5%A1ov%2C_Czech_Republic.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/2/2d/Konopiste_CZ_02.jpg"
+    ]
+  },
+  "stredocesky-brdy": {
+    "address": "Příbram",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Mn%C3%AD%C5%A1ek_pdo_Brdy%2C_Brdy%2C_houba.JPG/1280px-Mn%C3%AD%C5%A1ek_pdo_Brdy%2C_Brdy%2C_houba.JPG",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Mn%C3%AD%C5%A1ek_pdo_Brdy%2C_Brdy%2C_houba.JPG/1280px-Mn%C3%AD%C5%A1ek_pdo_Brdy%2C_Brdy%2C_houba.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Mn%C3%AD%C5%A1ek_pod_Brdy%2C_Brdy%2C_Muchom%C5%AFrka_%C4%8Derven%C3%A1.JPG/1280px-Mn%C3%AD%C5%A1ek_pod_Brdy%2C_Brdy%2C_Muchom%C5%AFrka_%C4%8Derven%C3%A1.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Brdy%2C_Mal%C3%A1_Baba%2C_bu%C4%8Dina_na_svahu_%28002%29.JPG/1280px-Brdy%2C_Mal%C3%A1_Baba%2C_bu%C4%8Dina_na_svahu_%28002%29.JPG"
+    ]
+  },
+  "stredocesky-kokorinsko": {
+    "address": "Mělník",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Hrad_Koko%C5%99%C3%ADn%2C_Koko%C5%99%C3%ADnsk%C3%BD_D%C5%AFl%2C_obec_Koko%C5%99%C3%ADn%2C_okr._M%C4%9Bln%C3%ADk%2C_St%C5%99edo%C4%8Desk%C3%BD_kraj_09.JPG/1280px-Hrad_Koko%C5%99%C3%ADn%2C_Koko%C5%99%C3%ADnsk%C3%BD_D%C5%AFl%2C_obec_Koko%C5%99%C3%ADn%2C_okr._M%C4%9Bln%C3%ADk%2C_St%C5%99edo%C4%8Desk%C3%BD_kraj_09.JPG",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Hrad_Koko%C5%99%C3%ADn%2C_Koko%C5%99%C3%ADnsk%C3%BD_D%C5%AFl%2C_obec_Koko%C5%99%C3%ADn%2C_okr._M%C4%9Bln%C3%ADk%2C_St%C5%99edo%C4%8Desk%C3%BD_kraj_09.JPG/1280px-Hrad_Koko%C5%99%C3%ADn%2C_Koko%C5%99%C3%ADnsk%C3%BD_D%C5%AFl%2C_obec_Koko%C5%99%C3%ADn%2C_okr._M%C4%9Bln%C3%ADk%2C_St%C5%99edo%C4%8Desk%C3%BD_kraj_09.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/1/17/Hrad_Koko%C5%99%C3%ADn%2C_Koko%C5%99%C3%ADnsk%C3%BD_D%C5%AFl%2C_obec_Koko%C5%99%C3%ADn%2C_okr._M%C4%9Bln%C3%ADk%2C_St%C5%99edo%C4%8Desk%C3%BD_kraj_21.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Kokorin_hrad3.jpg/1280px-Kokorin_hrad3.jpg"
+    ]
+  },
+  "stredocesky-krivoklat": {
+    "address": "Beroun",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Model_of_old_K%C5%99ivokl%C3%A1t_castle%2C_Rakovn%C3%ADk_District.jpg/1280px-Model_of_old_K%C5%99ivokl%C3%A1t_castle%2C_Rakovn%C3%ADk_District.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Model_of_old_K%C5%99ivokl%C3%A1t_castle%2C_Rakovn%C3%ADk_District.jpg/1280px-Model_of_old_K%C5%99ivokl%C3%A1t_castle%2C_Rakovn%C3%ADk_District.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Model_of_K%C5%99ivokl%C3%A1t_castle%2C_Rakovn%C3%ADk_District.jpg/1280px-Model_of_K%C5%99ivokl%C3%A1t_castle%2C_Rakovn%C3%ADk_District.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Castle_K%C5%99ivokl%C3%A1t%2C%28hrad_K%C5%99ivokl%C3%A1t%29_-_panoramio.jpg/1280px-Castle_K%C5%99ivokl%C3%A1t%2C%28hrad_K%C5%99ivokl%C3%A1t%29_-_panoramio.jpg"
+    ]
+  },
+  "stredocesky-svatý-jan": {
+    "address": "Beroun",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Svat%C3%BD_Jan_pod_Skalou%2C_z_vrchu.jpg/1280px-Svat%C3%BD_Jan_pod_Skalou%2C_z_vrchu.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Svat%C3%BD_Jan_pod_Skalou%2C_z_vrchu.jpg/1280px-Svat%C3%BD_Jan_pod_Skalou%2C_z_vrchu.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Svat%C3%BD_Jan_pod_Skalou%2C_u_mostu.jpg/1280px-Svat%C3%BD_Jan_pod_Skalou%2C_u_mostu.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Svat%C3%BD_Jan_pod_Skalou%2C_Pansk%C3%BD_hostinec%2C_mari%C3%A1nsk%C3%A9_souso%C5%A1%C3%AD_a_odj%C3%AD%C5%BEd%C4%9Bj%C3%ADc%C3%AD_autobus.jpg/1280px-Svat%C3%BD_Jan_pod_Skalou%2C_Pansk%C3%BD_hostinec%2C_mari%C3%A1nsk%C3%A9_souso%C5%A1%C3%AD_a_odj%C3%AD%C5%BEd%C4%9Bj%C3%ADc%C3%AD_autobus.jpg"
+    ]
+  },
+  "stredocesky-melnik-zamek": {
+    "address": "Mělník",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Melnik_-_zamek.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/d/d2/Melnik_-_zamek.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Z%C3%A1mek_M%C4%9Bln%C3%ADk.jpg/1280px-Z%C3%A1mek_M%C4%9Bln%C3%ADk.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/M%C4%9Bln%C3%ADk%2C_z%C3%A1mek_M%C4%9Bln%C3%ADk_s_p%C5%99ilehl%C3%BDm_kostelem_sv._Petra_a_Pavla.JPG/1280px-M%C4%9Bln%C3%ADk%2C_z%C3%A1mek_M%C4%9Bln%C3%ADk_s_p%C5%99ilehl%C3%BDm_kostelem_sv._Petra_a_Pavla.JPG"
+    ]
+  },
+  "stredocesky-kolin-namesti": {
+    "address": "Kolín",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Z%C3%A1smuky%2C_Komensk%C3%A9ho_n%C3%A1m%C4%9Bst%C3%AD%2C_po%C5%A1ta.jpg/1280px-Z%C3%A1smuky%2C_Komensk%C3%A9ho_n%C3%A1m%C4%9Bst%C3%AD%2C_po%C5%A1ta.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Z%C3%A1smuky%2C_Komensk%C3%A9ho_n%C3%A1m%C4%9Bst%C3%AD%2C_po%C5%A1ta.jpg/1280px-Z%C3%A1smuky%2C_Komensk%C3%A9ho_n%C3%A1m%C4%9Bst%C3%AD%2C_po%C5%A1ta.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Z%C3%A1smuky%2C_Komensk%C3%A9ho_n%C3%A1m%C4%9Bst%C3%AD%2C_l%C3%A9k%C3%A1rna.jpg/1280px-Z%C3%A1smuky%2C_Komensk%C3%A9ho_n%C3%A1m%C4%9Bst%C3%AD%2C_l%C3%A9k%C3%A1rna.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Z%C3%A1smuky%2C_Nov%C3%A1_hospoda.jpg/1280px-Z%C3%A1smuky%2C_Nov%C3%A1_hospoda.jpg"
+    ]
+  },
+  "stredocesky-lidice": {
+    "address": "Kladno",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Peter_Stehlik_2009.05.12_Lidice_004a.jpg/1280px-Peter_Stehlik_2009.05.12_Lidice_004a.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Peter_Stehlik_2009.05.12_Lidice_004a.jpg/1280px-Peter_Stehlik_2009.05.12_Lidice_004a.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Lidice_Memorial_Phillips_Wisconsin.jpg/1280px-Lidice_Memorial_Phillips_Wisconsin.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Lidice_memorial_%282%29.jpg/1280px-Lidice_memorial_%282%29.jpg"
+    ]
+  },
+  "stredocesky-sternberk": {
+    "address": "Benešov",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/%C5%A0ternberk%2C_hrad%2C_detail_fas%C3%A1dy.jpg/1280px-%C5%A0ternberk%2C_hrad%2C_detail_fas%C3%A1dy.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/%C5%A0ternberk%2C_hrad%2C_detail_fas%C3%A1dy.jpg/1280px-%C5%A0ternberk%2C_hrad%2C_detail_fas%C3%A1dy.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/%C5%A0ternberk%2C_hrad_%282%29.jpg/1280px-%C5%A0ternberk%2C_hrad_%282%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/%C5%A0ternberk%2C_hrad%2C_kamenn%C3%A1_v%C3%A1za.jpg/1280px-%C5%A0ternberk%2C_hrad%2C_kamenn%C3%A1_v%C3%A1za.jpg"
+    ]
+  },
+  "stredocesky-svata-hora": {
+    "address": "Příbram",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Poutn%C3%AD_m%C3%ADsto_Svat%C3%A1_Hora_v_P%C5%99%C3%ADbrami_03.JPG/1280px-Poutn%C3%AD_m%C3%ADsto_Svat%C3%A1_Hora_v_P%C5%99%C3%ADbrami_03.JPG",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Poutn%C3%AD_m%C3%ADsto_Svat%C3%A1_Hora_v_P%C5%99%C3%ADbrami_03.JPG/1280px-Poutn%C3%AD_m%C3%ADsto_Svat%C3%A1_Hora_v_P%C5%99%C3%ADbrami_03.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Poutn%C3%AD_m%C3%ADsto_Svat%C3%A1_Hora_v_P%C5%99%C3%ADbrami_04.JPG/1280px-Poutn%C3%AD_m%C3%ADsto_Svat%C3%A1_Hora_v_P%C5%99%C3%ADbrami_04.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Poutn%C3%AD_m%C3%ADsto_Svat%C3%A1_Hora_v_P%C5%99%C3%ADbrami_05.JPG/1280px-Poutn%C3%AD_m%C3%ADsto_Svat%C3%A1_Hora_v_P%C5%99%C3%ADbrami_05.JPG"
+    ]
+  },
+  "stredocesky-beroun-koupaliste": {
+    "address": "Beroun",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "",
+    "images": []
+  },
+  "stredocesky-boleslav-park": {
+    "address": "Mladá Boleslav",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Ověř aktuálně",
+    "rating": 4.3,
+    "reviewCount": 450,
+    "highlights": [
+      "Vhodné pro rodiny"
+    ],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Mlad%C3%A1_Boleslav%2C_park_%C5%A0t%C4%9Bp%C3%A1nka_%2802%29.jpg/1280px-Mlad%C3%A1_Boleslav%2C_park_%C5%A0t%C4%9Bp%C3%A1nka_%2802%29.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Mlad%C3%A1_Boleslav%2C_park_%C5%A0t%C4%9Bp%C3%A1nka_%2802%29.jpg/1280px-Mlad%C3%A1_Boleslav%2C_park_%C5%A0t%C4%9Bp%C3%A1nka_%2802%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Mlad%C3%A1_Boleslav%2C_park_%C5%A0t%C4%9Bp%C3%A1nka_%2803%29.jpg/1280px-Mlad%C3%A1_Boleslav%2C_park_%C5%A0t%C4%9Bp%C3%A1nka_%2803%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Mlad%C3%A1_Boleslav%2C_park_%C5%A0t%C4%9Bp%C3%A1nka%2C_tabule_DiscGolfPark_a_rozcestn%C3%ADk.jpg/1280px-Mlad%C3%A1_Boleslav%2C_park_%C5%A0t%C4%9Bp%C3%A1nka%2C_tabule_DiscGolfPark_a_rozcestn%C3%ADk.jpg"
+    ]
+  }
+}
