@@ -236,3 +236,27 @@ describe("resolveConflict", () => {
     expect(results.map((rec) => rec.type)).not.toContain("sequential");
   });
 });
+
+describe("variable child count", () => {
+  it("jedno dítě nemá konflikt", () => {
+    const checkIn: CheckIn = {
+      ...T3_CHECK_IN,
+      children: [{ age: 5, wants: ["park", "bazen"], mood: "active" }],
+    };
+
+    expect(hasConflict(checkIn)).toBe(false);
+  });
+
+  it("tři děti bez společného přání mají konflikt", () => {
+    const checkIn: CheckIn = {
+      ...T1_CHECK_IN,
+      children: [
+        { age: 5, wants: ["bazen"], mood: "active" },
+        { age: 7, wants: ["les"], mood: "calm" },
+        { age: 9, wants: ["zoo"], mood: "active" },
+      ],
+    };
+
+    expect(hasConflict(checkIn)).toBe(true);
+  });
+});

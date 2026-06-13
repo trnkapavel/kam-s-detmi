@@ -18,8 +18,6 @@ export function StepIllustration({ step, className = "" }: StepIllustrationProps
     case 2:
       return <StepChildIllustration variant="first" className={className} />;
     case 3:
-      return <StepChildIllustration variant="second" className={className} />;
-    case 4:
       return <StepWeatherIllustration className={className} />;
     default:
       return null;
@@ -32,7 +30,7 @@ type StepIllustrationSlotProps = {
 };
 
 export function StepIllustrationSlot({ step }: StepIllustrationSlotProps) {
-  if (step < 0 || step > 4) {
+  if (step < 0 || step > 3) {
     return null;
   }
 

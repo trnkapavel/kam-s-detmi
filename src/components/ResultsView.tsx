@@ -28,7 +28,6 @@ type ResultsSummaryProps = {
 };
 
 export function ResultsSummary({ checkIn, conflict }: ResultsSummaryProps) {
-  const [child1, child2] = checkIn.children;
   const WeatherIcon = WEATHER_ICONS[checkIn.weather.condition];
   const EnergyIcon = ENERGY_ICONS[checkIn.parent.energy];
 
@@ -55,24 +54,21 @@ export function ResultsSummary({ checkIn, conflict }: ResultsSummaryProps) {
         </span>
       </div>
       <div className="mt-3 space-y-1.5 text-base text-charcoal">
-        <p className="flex items-start gap-2">
-          <Baby size={18} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
-          <span>
-            {child1.age} let: {wantsSummary(child1.wants)} ({moodLabel(child1.mood)})
-          </span>
-        </p>
-        <p className="flex items-start gap-2">
-          <Baby size={18} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
-          <span>
-            {child2.age} let: {wantsSummary(child2.wants)} ({moodLabel(child2.mood)})
-          </span>
-        </p>
+        {checkIn.children.map((child, index) => (
+          <p key={index} className="flex items-start gap-2">
+            <Baby size={18} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
+            <span>
+              {checkIn.children.length === 1 ? "" : `Dítě ${index + 1}: `}
+              {child.age} let: {wantsSummary(child.wants)} ({moodLabel(child.mood)})
+            </span>
+          </p>
+        ))}
       </div>
       <p className="mt-2 flex items-center gap-1.5 text-[15px] text-steel">
         <Clock size={15} aria-hidden="true" />
         {timeLabel(checkIn.parent.timeAvailable)}
       </p>
-      {!conflict && (
+      {!conflict && checkIn.children.length > 1 && (
         <p className="mt-3 flex items-center gap-2 rounded-lg bg-card-mint px-3 py-2.5 text-base font-semibold text-brand-green glass-tint">
           <PartyPopper size={18} aria-hidden="true" />
           Super, shodujete se!

@@ -59,7 +59,7 @@ export type CheckIn = {
     energy: ParentEnergy;
     timeAvailable: TimeAvailable;
   };
-  children: [ChildInput, ChildInput];
+  children: ChildInput[];
   weather: {
     condition: WeatherCondition;
     temp: number;

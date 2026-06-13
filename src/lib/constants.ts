@@ -88,4 +88,10 @@ export const RECOMMENDATION_TYPE_LABELS: Record<string, string> = {
 };
 
 export const MAX_WANTS = 3;
-export const WIZARD_STEPS = 5;
+export const MAX_WANTS_MULTI_CHILD = 2;
+export const MAX_CHILDREN = 4;
+export const MIN_CHILDREN = 1;
+export const AGE_MIN = 1;
+export const AGE_MAX = 17;
+export const QUICK_AGE_CHIPS = [3, 5, 7, 10, 13] as const;
+export const WIZARD_STEPS = 4;

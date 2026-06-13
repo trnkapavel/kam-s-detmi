@@ -6,14 +6,16 @@ import type {
   Recommendation,
   ScoredActivity,
 } from "@/types";
+import { getSharedWants } from "@/lib/children";
 import { scoreActivity } from "./score";
 
 const MAX_SEQUENTIAL_DISTANCE_KM = 15;
 
 export function hasConflict(checkIn: CheckIn): boolean {
-  const wants1 = new Set(checkIn.children[0].wants);
-  const wants2 = new Set(checkIn.children[1].wants);
-  return !checkIn.children[0].wants.some((want) => wants2.has(want));
+  if (checkIn.children.length <= 1) {
+    return false;
+  }
+  return getSharedWants(checkIn.children).length === 0;
 }
 
 function matchesWants(activity: Activity, wants: ActivityType[]): boolean {
@@ -22,9 +24,7 @@ function matchesWants(activity: Activity, wants: ActivityType[]): boolean {
 }
 
 function isOverlapActivity(activity: Activity, checkIn: CheckIn): boolean {
-  const child1Match = matchesWants(activity, checkIn.children[0].wants);
-  const child2Match = matchesWants(activity, checkIn.children[1].wants);
-  return child1Match && child2Match;
+  return checkIn.children.every((child) => matchesWants(activity, child.wants));
 }
 
 function haversineKm(
@@ -53,22 +53,23 @@ function findOverlap(
     return null;
   }
 
+  const childLabel =
+    checkIn.children.length === 2
+      ? "obou dětí"
+      : `všech ${checkIn.children.length} dětí`;
+
   return {
     type: "overlap",
     activities: [candidate.activity],
-    reason: `${candidate.activity.name} spojuje přání obou dětí v jednom výletu.`,
+    reason: `${candidate.activity.name} spojuje přání ${childLabel} v jednom výletu.`,
     score: candidate.score,
   };
 }
 
-function findSequential(
+function findSequentialPair(
   scored: ScoredActivity[],
   checkIn: CheckIn,
 ): Recommendation | null {
-  if (checkIn.parent.energy === "tired") {
-    return null;
-  }
-
   const child1Activities = scored.filter(({ activity }) =>
     matchesWants(activity, checkIn.children[0].wants),
   );
@@ -118,6 +119,74 @@ function findSequential(
   };
 }
 
+function findSequentialChain(
+  scored: ScoredActivity[],
+  checkIn: CheckIn,
+): Recommendation | null {
+  const chain: Activity[] = [];
+  let lastCoords: { lat: number; lng: number } | null = null;
+  let totalScore = 0;
+
+  for (const child of checkIn.children) {
+    const candidates = scored.filter(
+      ({ activity }) =>
+        matchesWants(activity, child.wants) && !chain.some((item) => item.id === activity.id),
+    );
+
+    let best: ScoredActivity | null = null;
+
+    for (const candidate of candidates) {
+      const coords = candidate.activity.coordinates;
+      if (lastCoords && coords) {
+        const distance = haversineKm(lastCoords, coords);
+        if (distance > MAX_SEQUENTIAL_DISTANCE_KM) {
+          continue;
+        }
+      }
+
+      if (!best || candidate.score > best.score) {
+        best = candidate;
+      }
+    }
+
+    if (!best) {
+      return null;
+    }
+
+    chain.push(best.activity);
+    totalScore += best.score;
+    lastCoords = best.activity.coordinates ?? lastCoords;
+  }
+
+  if (chain.length < 2) {
+    return null;
+  }
+
+  const parts = chain.map((activity) => activity.name).join(" → ");
+
+  return {
+    type: "sequential",
+    activities: chain,
+    reason: `Sekvenční plán pro ${checkIn.children.length} dětí: ${parts}.`,
+    score: totalScore,
+  };
+}
+
+function findSequential(
+  scored: ScoredActivity[],
+  checkIn: CheckIn,
+): Recommendation | null {
+  if (checkIn.parent.energy === "tired" || checkIn.children.length < 2) {
+    return null;
+  }
+
+  if (checkIn.children.length === 2) {
+    return findSequentialPair(scored, checkIn);
+  }
+
+  return findSequentialChain(scored, checkIn);
+}
+
 function findCompromise(
   scored: ScoredActivity[],
 ): Recommendation | null {
@@ -131,7 +200,7 @@ function findCompromise(
   return {
     type: "compromise",
     activities: [candidate.activity],
-    reason: `${candidate.activity.name} je rozumný kompromis, který částečně uspokojí obě děti.`,
+    reason: `${candidate.activity.name} je rozumný kompromis, který částečně uspokojí všechny.`,
     score: candidate.score,
   };
 }
@@ -140,25 +209,30 @@ function findRotation(
   scored: ScoredActivity[],
   checkIn: CheckIn,
 ): Recommendation {
-  const forChild1 = scored.find(({ activity }) =>
-    matchesWants(activity, checkIn.children[0].wants),
-  );
-  const forChild2 = scored.find(({ activity }) =>
-    matchesWants(activity, checkIn.children[1].wants),
+  const picks = checkIn.children.map((child) =>
+    scored.find(({ activity }) => matchesWants(activity, child.wants)),
   );
 
-  const today = forChild1?.activity ?? scored[0]?.activity;
-  const nextTime = forChild2?.activity ?? scored[1]?.activity ?? today;
+  const activities = picks
+    .map((pick) => pick?.activity)
+    .filter((activity, index, arr): activity is Activity => {
+      return Boolean(activity && arr.indexOf(activity) === index);
+    });
 
-  const activities = [today, nextTime].filter(
-    (activity, index, arr) => activity && arr.indexOf(activity) === index,
-  ) as Activity[];
+  const fallback = scored.slice(0, checkIn.children.length).map(({ activity }) => activity);
+  const finalActivities = activities.length > 0 ? activities : fallback;
+
+  const today = finalActivities[0];
+  const nextTime = finalActivities[1] ?? finalActivities[0];
 
   return {
     type: "rotation",
-    activities,
-    reason: `Rotace: dnes ${today?.name ?? "první volba"}, příště ${nextTime?.name ?? "druhá volba"}.`,
-    score: (forChild1?.score ?? 0) + (forChild2?.score ?? 0),
+    activities: finalActivities.slice(0, Math.max(2, Math.min(finalActivities.length, checkIn.children.length))),
+    reason:
+      checkIn.children.length === 2
+        ? `Rotace: dnes ${today?.name ?? "první volba"}, příště ${nextTime?.name ?? "druhá volba"}.`
+        : `Rotace: střídejte tipy podle přání — dnes ${today?.name ?? "první volba"}.`,
+    score: picks.reduce((sum, pick) => sum + (pick?.score ?? 0), 0),
   };
 }
 
@@ -215,11 +289,15 @@ export function buildRecommendations(
 export function topActivityForChild(
   activities: Activity[],
   checkIn: CheckIn,
-  childIndex: 0 | 1,
+  childIndex: number,
 ): Activity | undefined {
-  const wants = checkIn.children[childIndex].wants;
+  const child = checkIn.children[childIndex];
+  if (!child) {
+    return undefined;
+  }
+
   return activities
     .map((activity) => ({ activity, score: scoreActivity(activity, checkIn) }))
-    .filter(({ activity }) => matchesWants(activity, wants))
+    .filter(({ activity }) => matchesWants(activity, child.wants))
     .sort((a, b) => b.score - a.score)[0]?.activity;
 }
