@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/Button";
 import { CardIllustration } from "@/components/ui/CardIllustration";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { PageShell } from "@/components/ui/PageShell";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 import { ResultsJourneyIllustration } from "@/components/illustrations/ResultsJourneyIllustration";
 import { clearCheckIn, loadCheckIn } from "@/lib/check-in-session";
@@ -63,18 +64,18 @@ export default function VysledkyPage() {
 
   if (loading) {
     return (
-      <main className="mx-auto flex min-h-screen max-w-lg items-center justify-center p-4">
-        <GlassCard className="p-10 animate-scale-in">
+      <PageShell className="flex min-h-screen items-center justify-center p-4 lg:px-8">
+        <GlassCard className="w-full max-w-md p-10 animate-scale-in lg:max-w-lg">
           <LoadingSpinner label="Hledám tipy…" />
         </GlassCard>
-      </main>
+      </PageShell>
     );
   }
 
   if (!checkIn) {
     return (
-      <main className="mx-auto flex min-h-screen max-w-lg flex-col items-center justify-center gap-6 p-4 text-center">
-        <GlassCard className="w-full max-w-sm p-8 animate-in-up">
+      <PageShell className="flex min-h-screen flex-col items-center justify-center gap-6 p-4 text-center lg:px-8">
+        <GlassCard className="w-full max-w-sm p-8 animate-in-up lg:max-w-md">
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/15 text-primary">
             <Sparkles size={28} aria-hidden="true" />
           </div>
@@ -86,35 +87,50 @@ export default function VysledkyPage() {
             </Button>
           </Link>
         </GlassCard>
-      </main>
+      </PageShell>
     );
   }
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-lg flex-col gap-6 p-4 pb-safe">
-      <header className="animate-in-up">
-        <GlassCard className="p-5">
-          <div className="relative min-h-[80px]">
-            <CardIllustration position="top-right" size="lg">
-              <ResultsJourneyIllustration className="h-auto w-full" />
-            </CardIllustration>
-            <div className="relative z-10 flex max-w-[62%] items-center gap-3 sm:max-w-[68%]">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
-                <Sparkles size={22} aria-hidden="true" />
+    <PageShell className="min-h-screen p-4 pb-safe lg:px-8">
+      <div className="flex flex-col gap-6 lg:grid lg:grid-cols-[minmax(280px,320px)_minmax(0,1fr)] lg:items-start lg:gap-10">
+        <aside className="space-y-6 lg:sticky lg:top-6">
+          <header className="animate-in-up">
+            <GlassCard className="p-5">
+              <div className="relative min-h-[80px] lg:min-h-0">
+                <div className="lg:hidden">
+                  <CardIllustration position="top-right" size="lg">
+                    <ResultsJourneyIllustration className="h-auto w-full" />
+                  </CardIllustration>
+                </div>
+                <div className="relative z-10 flex max-w-[62%] items-center gap-3 sm:max-w-[68%] lg:max-w-none">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                    <Sparkles size={22} aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h1 className="text-[26px] font-bold tracking-tight text-ink lg:text-[28px]">
+                      Tvoje tipy
+                    </h1>
+                    <p className="mt-0.5 text-[15px] text-steel">
+                      {result?.recommendations.length ?? 0} tipů pro {checkIn.location.mesto}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h1 className="text-[26px] font-bold tracking-tight text-ink">Tvoje tipy</h1>
-                <p className="mt-0.5 text-[15px] text-steel">
-                  {result?.recommendations.length ?? 0} tipů pro {checkIn.location.mesto}
-                </p>
-              </div>
-            </div>
-          </div>
-        </GlassCard>
-      </header>
+            </GlassCard>
+          </header>
 
-      <ResultsSummary checkIn={checkIn} conflict={result?.conflict ?? true} />
+          <ResultsSummary checkIn={checkIn} conflict={result?.conflict ?? true} />
 
+          <Link href="/" onClick={handleNewCheckIn} className="hidden animate-in-up lg:block">
+            <Button fullWidth>
+              Nový check-in
+              <ArrowRight size={20} aria-hidden="true" />
+            </Button>
+          </Link>
+        </aside>
+
+        <div className="flex flex-col gap-6">
       {error && (
         <GlassCard className="space-y-4 bg-card-rose p-5 animate-in" variant="tint">
           <p className="text-base text-semantic-error">{error}</p>
@@ -134,7 +150,7 @@ export default function VysledkyPage() {
       )}
 
       {!error && result && result.recommendations.length > 0 && (
-        <div className="space-y-4">
+        <div className="flex flex-col gap-4">
           {result.recommendations.map((recommendation, index) => (
             <RecommendationCard
               key={`${recommendation.type}-${index}`}
@@ -149,12 +165,14 @@ export default function VysledkyPage() {
         Tipy jsou orientační — fotky jsou z Wikimedia Commons, kde chybí zdroj, zobrazí se ilustrace. Ověř si aktuální otevírací dobu a ceny.
       </p>
 
-      <Link href="/" onClick={handleNewCheckIn} className="block animate-in-up">
+      <Link href="/" onClick={handleNewCheckIn} className="block animate-in-up lg:hidden">
         <Button fullWidth>
           Nový check-in
           <ArrowRight size={20} aria-hidden="true" />
         </Button>
       </Link>
-    </main>
+        </div>
+      </div>
+    </PageShell>
   );
 }

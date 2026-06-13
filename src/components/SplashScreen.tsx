@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { markSplashSeen } from "@/lib/splash-session";
-import { pickSplashHero, SPLASH_CHIPS } from "@/lib/splash-content";
+import { pickSplashHero, SPLASH_CHIPS, SPLASH_HERO_POOL } from "@/lib/splash-content";
 import { ArrowRight, Sparkles } from "@/lib/icons";
 
 type SplashScreenProps = {
@@ -11,7 +11,7 @@ type SplashScreenProps = {
 };
 
 export function SplashScreen({ onStart }: SplashScreenProps) {
-  const [hero] = useState(() => pickSplashHero());
+  const [hero, setHero] = useState(() => pickSplashHero());
 
   function handleStart() {
     markSplashSeen();
@@ -19,8 +19,9 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
   }
 
   return (
-    <div className="fixed inset-0 z-30 mx-auto max-w-lg overflow-hidden bg-ink">
-      <div className="relative h-dvh w-full">
+    <div className="fixed inset-0 z-30 flex items-center justify-center bg-transparent p-0 lg:bg-black/20 lg:p-8">
+      <div className="relative mx-auto h-dvh w-full max-w-lg overflow-hidden bg-ink lg:h-[min(900px,92dvh)] lg:max-w-3xl lg:rounded-3xl lg:shadow-2xl">
+      <div className="relative h-full w-full">
         <Image
           src={hero.image}
           alt={hero.alt}
@@ -28,7 +29,13 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
           priority
           className="splash-hero-image object-cover"
           style={{ objectPosition: hero.objectPosition ?? "center" }}
-          sizes="(max-width: 512px) 100vw, 512px"
+          sizes="(max-width: 1024px) 100vw, 768px"
+          onError={() => {
+            const fallback = SPLASH_HERO_POOL[0];
+            if (hero.image !== fallback.image) {
+              setHero(fallback);
+            }
+          }}
         />
 
         <div className="splash-overlay absolute inset-0" aria-hidden="true" />
@@ -74,6 +81,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
             </button>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

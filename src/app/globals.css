@@ -31,9 +31,9 @@
   --glass-border: rgba(255, 255, 255, 0.72);
   --glass-shadow: 0 8px 32px rgba(86, 69, 212, 0.1);
   --glass-blur: 20px;
-  --btn-disabled-bg: #e4e2de;
-  --btn-disabled-text: #9a9790;
-  --btn-disabled-border: #d0cdc6;
+  --btn-disabled-bg: rgba(86, 69, 212, 0.22);
+  --btn-disabled-text: rgba(255, 255, 255, 0.58);
+  --btn-disabled-border: rgba(86, 69, 212, 0.2);
 }
 
 @theme inline {
@@ -323,7 +323,11 @@ body {
 }
 
 .btn-glow:disabled {
-  background: var(--btn-disabled-bg);
+  background: linear-gradient(
+    135deg,
+    rgba(86, 69, 212, 0.3) 0%,
+    rgba(124, 108, 240, 0.26) 100%
+  );
   color: var(--btn-disabled-text);
   border: 1px solid var(--btn-disabled-border);
   box-shadow: none;
@@ -473,7 +477,13 @@ body {
   }
 }
 
-/* ── Weather hero (iOS-style) ── */
+@media (min-width: 1024px) {
+  .glass-footer {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+}
+
 .weather-hero {
   position: relative;
   min-height: 220px;

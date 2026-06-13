@@ -9,8 +9,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary:
-    "btn-glow text-white disabled:border disabled:border-btn-disabled-border disabled:bg-btn-disabled-bg disabled:text-btn-disabled-text disabled:shadow-none",
+  primary: "btn-glow text-white disabled:text-white/55 disabled:shadow-none",
   secondary: "btn-glass text-ink disabled:opacity-50",
   link: "bg-transparent text-link underline-offset-2 hover:underline disabled:opacity-50 min-h-0 px-0 py-0",
 };

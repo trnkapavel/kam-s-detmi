@@ -63,13 +63,13 @@ function ActivityPreviewContent({
     <div className="overflow-hidden rounded-xl border border-hairline/80 bg-white/55">
       <div className="relative">
         {showPhoto ? (
-          <div className="relative aspect-[16/10] w-full bg-card-lavender">
+          <div className="relative aspect-[16/10] w-full bg-card-lavender lg:aspect-[21/9]">
             <Image
               src={activeImage}
               alt={activity.name}
               fill
               className="object-cover"
-              sizes="(max-width: 512px) 100vw, 512px"
+              sizes="(max-width: 1024px) 100vw, 900px"
               onError={() => {
                 if (photoIndex < place.images.length - 1) {
                   setPhotoIndex((index) => index + 1);
@@ -78,14 +78,13 @@ function ActivityPreviewContent({
                 setImageError(true);
               }}
             />
+            <div className="absolute bottom-3 left-3">
+              <StarRating rating={place.rating} reviewCount={place.reviewCount} />
+            </div>
           </div>
         ) : (
           <ActivityHero activity={activity} showIllustrationBadge />
         )}
-
-        <div className="absolute bottom-3 left-3">
-          <StarRating rating={place.rating} reviewCount={place.reviewCount} />
-        </div>
       </div>
 
       {showPhoto && galleryImages.length > 0 && (
@@ -125,7 +124,7 @@ function ActivityHero({
   const heroBg = ACTIVITY_HERO_BACKGROUNDS[type];
 
   return (
-    <div className={`relative aspect-[16/10] w-full ${heroBg}`}>
+    <div className={`relative aspect-[16/10] w-full lg:aspect-[21/9] ${heroBg}`}>
       <div className="absolute inset-0 flex items-center justify-center px-10 py-6">
         <ActivityTypeIllustration type={type} className="h-full max-h-[150px] w-full" />
       </div>
@@ -153,9 +152,9 @@ function ActivityDetails({
   place: ActivityPlace | null;
 }) {
   return (
-    <div className="space-y-3 px-4 pb-4">
+    <div className="space-y-3 px-4 pb-4 lg:px-5 lg:pb-5">
       <div>
-        <h3 className="text-xl font-bold text-ink">{activity.name}</h3>
+        <h3 className="text-xl font-bold text-ink lg:text-[22px]">{activity.name}</h3>
         {place && (
           <p className="mt-1 flex items-start gap-1.5 text-sm text-slate">
             <MapPin size={15} className="mt-0.5 shrink-0" aria-hidden="true" />

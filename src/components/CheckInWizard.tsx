@@ -16,6 +16,7 @@ import { CardIllustration } from "@/components/ui/CardIllustration";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { StepIllustrationSlot } from "@/components/illustrations/StepIllustration";
 import { ProgressBar } from "@/components/ui/ProgressBar";
+import { PageShell } from "@/components/ui/PageShell";
 import { OptionButton } from "@/components/ui/OptionButton";
 import {
   ENERGY_OPTIONS,
@@ -137,8 +138,8 @@ export function CheckInWizard() {
   });
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-lg flex-col">
-      <div className="flex flex-1 flex-col gap-6 p-4 pb-6">
+    <PageShell className="flex min-h-screen flex-col">
+      <div className="flex flex-1 flex-col gap-6 p-4 pb-6 lg:gap-8 lg:px-8 lg:pb-8">
         <header className="animate-in-up">
           <GlassCard className="p-5">
             <div className="flex items-start gap-3">
@@ -173,7 +174,7 @@ export function CheckInWizard() {
               <div className="space-y-6">
                 <div>
                   <p className="mb-3 text-[15px] font-medium text-slate">Kraj</p>
-                  <div className="grid grid-cols-1 gap-2.5">
+                  <div className="grid grid-cols-1 gap-2.5 lg:grid-cols-3">
                     {KRAJE.map((option) => (
                       <OptionButton
                         key={option.value}
@@ -188,7 +189,7 @@ export function CheckInWizard() {
                 </div>
                 <div>
                   <p className="mb-3 text-[15px] font-medium text-slate">Město</p>
-                  <div className="grid grid-cols-2 gap-2.5">
+                  <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-2 xl:grid-cols-3">
                     {MESTA[kraj].map((city) => (
                       <OptionButton
                         key={city}
@@ -205,7 +206,7 @@ export function CheckInWizard() {
             )}
 
             {step === 1 && (
-              <div className="space-y-6">
+              <div className="space-y-6 lg:grid lg:grid-cols-2 lg:gap-8 lg:space-y-0">
                 <div>
                   <p className="mb-3 text-[15px] font-medium text-slate">Energie</p>
                   <div className="grid grid-cols-1 gap-2.5">
@@ -270,7 +271,7 @@ export function CheckInWizard() {
         )}
       </div>
 
-      <div className="glass-footer sticky bottom-0 px-4 pb-safe pt-4">
+      <div className="glass-footer sticky bottom-0 px-4 pb-safe pt-4 lg:px-8">
         {!canProceed() && proceedHint && (
           <p
             className="mb-3 rounded-lg bg-card-peach px-3 py-2.5 text-center text-[15px] font-medium leading-snug text-brand-orange glass-tint"
@@ -314,6 +315,6 @@ export function CheckInWizard() {
           )}
         </div>
       </div>
-    </div>
+    </PageShell>
   );
 }
