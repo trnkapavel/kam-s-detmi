@@ -3,9 +3,12 @@
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 import { WeatherStep } from "@/components/check-in/WeatherStep";
+import { AnimatedStep } from "@/components/ui/AnimatedStep";
+import { Button } from "@/components/ui/Button";
+import { GlassCard } from "@/components/ui/GlassCard";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { OptionButton } from "@/components/ui/OptionButton";
-import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
+import { TextInput } from "@/components/ui/TextInput";
 import {
   ACTIVITY_OPTIONS,
   ENERGY_OPTIONS,
@@ -16,6 +19,21 @@ import {
   TIME_OPTIONS,
   WIZARD_STEPS,
 } from "@/lib/constants";
+import {
+  ACTIVITY_ICONS,
+  ENERGY_ICONS,
+  MOOD_ICONS,
+  Icon,
+  ArrowRight,
+  ChevronLeft,
+  Compass,
+  MapPin,
+  PartyPopper,
+  Sparkles,
+  User,
+  Users,
+  CloudSun,
+} from "@/lib/icons";
 import { saveCheckIn } from "@/lib/check-in-session";
 import type {
   ActivityType,
@@ -35,6 +53,14 @@ type ChildDraft = {
 };
 
 const emptyChild = (): ChildDraft => ({ age: "", wants: [], mood: null });
+
+const STEP_META = [
+  { title: "Kde jsi?", icon: MapPin },
+  { title: "Jak se dnes cítíš?", icon: User },
+  { title: "První dítě", icon: Users },
+  { title: "Druhé dítě", icon: Users },
+  { title: "Jaké je počasí?", icon: CloudSun },
+];
 
 export function CheckInWizard() {
   const router = useRouter();
@@ -132,20 +158,15 @@ export function CheckInWizard() {
   }
 
   function renderChildStep(
-    label: string,
     child: ChildDraft,
     setChild: (value: ChildDraft) => void,
     showAgreement: boolean,
   ) {
     return (
-      <div className="space-y-5">
-        <h2 className="text-xl font-bold text-gray-900">{label}</h2>
-
+      <div className="space-y-6">
         <div>
-          <label htmlFor="age" className="mb-2 block text-sm font-medium text-gray-700">
-            Věk (1–17)
-          </label>
-          <input
+          <p className="mb-2 text-[15px] font-medium text-slate">Věk (1–17)</p>
+          <TextInput
             id="age"
             type="number"
             min={1}
@@ -153,185 +174,210 @@ export function CheckInWizard() {
             inputMode="numeric"
             value={child.age}
             onChange={(event) => setChild({ ...child, age: event.target.value })}
-            className="min-h-11 w-full rounded-xl border border-gray-300 px-4 text-base"
             placeholder="např. 5"
           />
         </div>
 
         <div>
-          <p className="mb-2 text-sm font-medium text-gray-700">
+          <p className="mb-3 text-[15px] font-medium text-slate">
             Co dnes chce? (max {MAX_WANTS})
           </p>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-2.5">
             {ACTIVITY_OPTIONS.map((option) => (
               <OptionButton
                 key={option.value}
                 selected={child.wants.includes(option.value)}
                 onClick={() => toggleWant(child, setChild, option.value)}
+                icon={<Icon icon={ACTIVITY_ICONS[option.value]} size={18} />}
               >
-                {option.emoji} {option.label}
+                {option.label}
               </OptionButton>
             ))}
           </div>
         </div>
 
         <div>
-          <p className="mb-2 text-sm font-medium text-gray-700">Nálada</p>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+          <p className="mb-3 text-[15px] font-medium text-slate">Nálada</p>
+          <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
             {MOOD_OPTIONS.map((option) => (
               <OptionButton
                 key={option.value}
                 selected={child.mood === option.value}
                 onClick={() => setChild({ ...child, mood: option.value })}
+                icon={<Icon icon={MOOD_ICONS[option.value]} size={18} />}
               >
-                {option.emoji} {option.label}
+                {option.label}
               </OptionButton>
             ))}
           </div>
         </div>
 
         {showAgreement && childrenAgree() && (
-          <p className="rounded-xl bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
-            Super, shodujete se! 🎉
-          </p>
+          <div className="flex items-center gap-2.5 rounded-xl bg-card-mint px-4 py-3.5 text-base font-semibold text-brand-green glass-tint animate-scale-in">
+            <PartyPopper size={20} aria-hidden="true" />
+            Super, shodujete se!
+          </div>
         )}
       </div>
     );
   }
 
+  const StepIcon = STEP_META[step]?.icon ?? Compass;
+
   return (
     <div className="mx-auto flex min-h-screen max-w-lg flex-col">
       <div className="flex flex-1 flex-col gap-6 p-4 pb-6">
-        <header>
-          <h1 className="text-2xl font-bold text-gray-900">Kam s dětmi</h1>
-          <p className="text-sm text-gray-500">Check-in trvá do 2 minut</p>
+        <header className="animate-in-up">
+          <GlassCard className="p-5">
+            <div className="flex items-start gap-3">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                <Sparkles size={22} strokeWidth={2} aria-hidden="true" />
+              </div>
+              <div>
+                <h1 className="text-[26px] font-bold tracking-tight text-ink">Kam s dětmi</h1>
+                <p className="mt-0.5 text-[15px] text-steel">Check-in trvá do 2 minut</p>
+              </div>
+            </div>
+          </GlassCard>
         </header>
 
         <ProgressBar step={step} />
 
-        <div className="flex-1">{/* steps below */}
-        {step === 0 && (
-          <div className="space-y-5">
-            <h2 className="text-xl font-bold text-gray-900">Kde jsi?</h2>
-            <div>
-              <p className="mb-2 text-sm font-medium text-gray-700">Kraj</p>
-              <div className="grid grid-cols-1 gap-2">
-                {KRAJE.map((option) => (
-                  <OptionButton
-                    key={option.value}
-                    selected={kraj === option.value}
-                    onClick={() => handleKrajChange(option.value)}
-                  >
-                    {option.label}
-                  </OptionButton>
-                ))}
-              </div>
+        <GlassCard className="flex-1 p-5">
+          <div className="mb-5 flex items-center gap-2.5">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
+              <StepIcon size={18} strokeWidth={2.5} aria-hidden="true" />
             </div>
-            <div>
-              <p className="mb-2 text-sm font-medium text-gray-700">Město</p>
-              <div className="grid grid-cols-2 gap-2">
-                {MESTA[kraj].map((city) => (
-                  <OptionButton
-                    key={city}
-                    selected={mesto === city}
-                    onClick={() => setMesto(city)}
-                  >
-                    {city}
-                  </OptionButton>
-                ))}
-              </div>
-            </div>
+            <h2 className="text-xl font-bold text-ink">{STEP_META[step]?.title}</h2>
           </div>
-        )}
 
-        {step === 1 && (
-          <div className="space-y-5">
-            <h2 className="text-xl font-bold text-gray-900">Jak se dnes cítíš?</h2>
-            <div>
-              <p className="mb-2 text-sm font-medium text-gray-700">Energie</p>
-              <div className="grid grid-cols-1 gap-2">
-                {ENERGY_OPTIONS.map((option) => (
-                  <OptionButton
-                    key={option.value}
-                    selected={energy === option.value}
-                    onClick={() => setEnergy(option.value)}
-                  >
-                    {option.emoji} {option.label}
-                  </OptionButton>
-                ))}
+          <AnimatedStep stepKey={step}>
+            {step === 0 && (
+              <div className="space-y-6">
+                <div>
+                  <p className="mb-3 text-[15px] font-medium text-slate">Kraj</p>
+                  <div className="grid grid-cols-1 gap-2.5">
+                    {KRAJE.map((option) => (
+                      <OptionButton
+                        key={option.value}
+                        selected={kraj === option.value}
+                        onClick={() => handleKrajChange(option.value)}
+                        icon={<Compass size={18} aria-hidden="true" />}
+                      >
+                        {option.label}
+                      </OptionButton>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <p className="mb-3 text-[15px] font-medium text-slate">Město</p>
+                  <div className="grid grid-cols-2 gap-2.5">
+                    {MESTA[kraj].map((city) => (
+                      <OptionButton
+                        key={city}
+                        selected={mesto === city}
+                        onClick={() => setMesto(city)}
+                        icon={<MapPin size={18} aria-hidden="true" />}
+                      >
+                        {city}
+                      </OptionButton>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-            <div>
-              <p className="mb-2 text-sm font-medium text-gray-700">Kolik máš času?</p>
-              <div className="grid grid-cols-1 gap-2">
-                {TIME_OPTIONS.map((option) => (
-                  <OptionButton
-                    key={option.value}
-                    selected={timeAvailable === option.value}
-                    onClick={() => setTimeAvailable(option.value)}
-                  >
-                    {option.label}
-                  </OptionButton>
-                ))}
+            )}
+
+            {step === 1 && (
+              <div className="space-y-6">
+                <div>
+                  <p className="mb-3 text-[15px] font-medium text-slate">Energie</p>
+                  <div className="grid grid-cols-1 gap-2.5">
+                    {ENERGY_OPTIONS.map((option) => (
+                      <OptionButton
+                        key={option.value}
+                        selected={energy === option.value}
+                        onClick={() => setEnergy(option.value)}
+                        icon={<Icon icon={ENERGY_ICONS[option.value]} size={18} />}
+                      >
+                        {option.label}
+                      </OptionButton>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <p className="mb-3 text-[15px] font-medium text-slate">Kolik máš času?</p>
+                  <div className="grid grid-cols-1 gap-2.5">
+                    {TIME_OPTIONS.map((option) => (
+                      <OptionButton
+                        key={option.value}
+                        selected={timeAvailable === option.value}
+                        onClick={() => setTimeAvailable(option.value)}
+                      >
+                        {option.label}
+                      </OptionButton>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        )}
+            )}
 
-        {step === 2 && renderChildStep("První dítě", child1, setChild1, false)}
-        {step === 3 && renderChildStep("Druhé dítě", child2, setChild2, true)}
+            {step === 2 && renderChildStep(child1, setChild1, false)}
+            {step === 3 && renderChildStep(child2, setChild2, true)}
 
-        {step === 4 && (
-          <WeatherStep
-            mesto={mesto}
-            weatherAuto={weatherAuto}
-            onWeatherAutoChange={setWeatherAuto}
-            weatherCondition={weatherCondition}
-            onWeatherConditionChange={setWeatherCondition}
-            weatherTemp={weatherTemp}
-            onWeatherTempChange={setWeatherTemp}
-            onWeatherReady={handleWeatherReady}
-          />
-        )}
-        </div>
+            {step === 4 && (
+              <WeatherStep
+                mesto={mesto}
+                weatherAuto={weatherAuto}
+                onWeatherAutoChange={setWeatherAuto}
+                weatherCondition={weatherCondition}
+                onWeatherConditionChange={setWeatherCondition}
+                weatherTemp={weatherTemp}
+                onWeatherTempChange={setWeatherTemp}
+                onWeatherReady={handleWeatherReady}
+              />
+            )}
+          </AnimatedStep>
+        </GlassCard>
 
         {error && (
-          <p className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-800">{error}</p>
+          <p className="animate-in rounded-xl bg-card-rose px-4 py-3.5 text-base text-semantic-error glass-tint">
+            {error}
+          </p>
         )}
       </div>
 
-      <div className="sticky bottom-0 border-t border-gray-200 bg-slate-50/95 px-4 pb-safe pt-3 backdrop-blur">
+      <div className="glass-footer sticky bottom-0 px-4 pb-safe pt-4">
         <div className="flex gap-3">
           {step > 0 && (
-            <button
-              type="button"
-              onClick={() => setStep((current) => current - 1)}
+            <Button
+              variant="secondary"
               disabled={submitting}
-              className="min-h-11 flex-1 rounded-xl border border-gray-300 px-4 font-medium text-gray-700 disabled:opacity-50"
+              onClick={() => setStep((current) => current - 1)}
+              className="flex-1"
             >
+              <ChevronLeft size={20} aria-hidden="true" />
               Zpět
-            </button>
+            </Button>
           )}
 
           {step < WIZARD_STEPS - 1 ? (
-            <button
-              type="button"
+            <Button
               disabled={!canProceed()}
               onClick={() => setStep((current) => current + 1)}
-              className="min-h-11 flex-1 rounded-xl bg-sky-600 px-4 font-medium text-white disabled:cursor-not-allowed disabled:bg-gray-300"
+              className="flex-1"
             >
               Pokračovat
-            </button>
+              <ArrowRight size={20} aria-hidden="true" />
+            </Button>
           ) : (
-            <button
-              type="button"
+            <Button
               disabled={submitting || !canProceed()}
               onClick={handleSubmit}
-              className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-sky-600 px-4 font-medium text-white disabled:cursor-not-allowed disabled:bg-gray-300"
+              className="flex-1"
             >
-              {submitting && <LoadingSpinner size="sm" />}
               {submitting ? "Hledám tipy…" : "Najít tipy"}
-            </button>
+              {!submitting && <Sparkles size={20} aria-hidden="true" />}
+            </Button>
           )}
         </div>
       </div>

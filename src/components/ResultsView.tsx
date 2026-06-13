@@ -1,6 +1,18 @@
 import type { RecommendResult } from "@/engine";
 import type { CheckIn, Recommendation } from "@/types";
 import { RECOMMENDATION_TYPE_LABELS } from "@/lib/constants";
+import { RECOMMENDATION_CARD_STYLES } from "@/lib/design-tokens";
+import {
+  Icon,
+  RECOMMENDATION_ICONS,
+  WEATHER_ICONS,
+  ENERGY_ICONS,
+  MapPin,
+  Clock,
+  Baby,
+  PartyPopper,
+  ExternalLink,
+} from "@/lib/icons";
 import {
   energyLabel,
   moodLabel,
@@ -8,6 +20,7 @@ import {
   wantsSummary,
   weatherLabel,
 } from "@/lib/labels";
+import { GlassCard } from "@/components/ui/GlassCard";
 
 type ResultsSummaryProps = {
   checkIn: CheckIn;
@@ -16,66 +29,105 @@ type ResultsSummaryProps = {
 
 export function ResultsSummary({ checkIn, conflict }: ResultsSummaryProps) {
   const [child1, child2] = checkIn.children;
+  const WeatherIcon = WEATHER_ICONS[checkIn.weather.condition];
+  const EnergyIcon = ENERGY_ICONS[checkIn.parent.energy];
 
   return (
-    <section className="rounded-2xl bg-sky-50 p-4">
-      <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-sky-800">
+    <GlassCard className="p-5" animate delay={1}>
+      <h2 className="mb-3 flex items-center gap-2 text-base font-semibold text-slate">
+        <MapPin size={18} strokeWidth={2} className="text-primary" aria-hidden="true" />
         Tvoje situace
       </h2>
-      <p className="text-sm text-gray-700">
-        📍 {checkIn.location.mesto} · {energyLabel(checkIn.parent.energy)} ·{" "}
-        {weatherLabel(checkIn.weather.condition)} ({checkIn.weather.temp} °C)
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-base text-charcoal">
+        <span className="inline-flex items-center gap-1.5 font-medium">
+          <MapPin size={16} className="text-primary" aria-hidden="true" />
+          {checkIn.location.mesto}
+        </span>
+        <span className="text-steel">·</span>
+        <span className="inline-flex items-center gap-1.5">
+          <EnergyIcon size={16} className="text-primary" aria-hidden="true" />
+          {energyLabel(checkIn.parent.energy)}
+        </span>
+        <span className="text-steel">·</span>
+        <span className="inline-flex items-center gap-1.5">
+          <WeatherIcon size={16} className="text-link" aria-hidden="true" />
+          {weatherLabel(checkIn.weather.condition)} ({checkIn.weather.temp} °C)
+        </span>
+      </div>
+      <div className="mt-3 space-y-1.5 text-base text-charcoal">
+        <p className="flex items-start gap-2">
+          <Baby size={18} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
+          <span>
+            {child1.age} let: {wantsSummary(child1.wants)} ({moodLabel(child1.mood)})
+          </span>
+        </p>
+        <p className="flex items-start gap-2">
+          <Baby size={18} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
+          <span>
+            {child2.age} let: {wantsSummary(child2.wants)} ({moodLabel(child2.mood)})
+          </span>
+        </p>
+      </div>
+      <p className="mt-2 flex items-center gap-1.5 text-[15px] text-steel">
+        <Clock size={15} aria-hidden="true" />
+        {timeLabel(checkIn.parent.timeAvailable)}
       </p>
-      <p className="mt-1 text-sm text-gray-700">
-        👧 {child1.age} let: {wantsSummary(child1.wants)} ({moodLabel(child1.mood)})
-      </p>
-      <p className="text-sm text-gray-700">
-        👦 {child2.age} let: {wantsSummary(child2.wants)} ({moodLabel(child2.mood)})
-      </p>
-      <p className="mt-1 text-xs text-gray-500">⏱ {timeLabel(checkIn.parent.timeAvailable)}</p>
       {!conflict && (
-        <p className="mt-2 text-sm font-medium text-emerald-700">Super, shodujete se! 🎉</p>
+        <p className="mt-3 flex items-center gap-2 rounded-lg bg-card-mint px-3 py-2.5 text-base font-semibold text-brand-green glass-tint">
+          <PartyPopper size={18} aria-hidden="true" />
+          Super, shodujete se!
+        </p>
       )}
-    </section>
+    </GlassCard>
   );
 }
 
 type RecommendationCardProps = {
   recommendation: Recommendation;
+  index: number;
 };
 
-export function RecommendationCard({ recommendation }: RecommendationCardProps) {
+export function RecommendationCard({ recommendation, index }: RecommendationCardProps) {
   const typeLabel = RECOMMENDATION_TYPE_LABELS[recommendation.type] ?? recommendation.type;
+  const styles = RECOMMENDATION_CARD_STYLES[recommendation.type];
+  const TypeIcon = RECOMMENDATION_ICONS[recommendation.type];
 
   return (
-    <article className="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-      <div className="mb-2 flex items-center justify-between gap-2">
-        <span className="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold text-sky-800">
+    <article
+      className={`glass-tint rounded-xl p-6 ${styles.bg} animate-in-up`}
+      style={{ animationDelay: `${0.08 * (index + 2)}s` }}
+    >
+      <div className="mb-4">
+        <span
+          className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-[15px] font-semibold ${styles.badgeText}`}
+        >
+          <Icon icon={TypeIcon} size={16} strokeWidth={2.5} />
           {typeLabel}
         </span>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-5">
         {recommendation.activities.map((activity) => (
           <div key={activity.id}>
-            <h3 className="text-lg font-semibold text-gray-900">{activity.name}</h3>
-            <p className="mt-1 text-sm text-gray-600">{activity.description}</p>
+            <h3 className="text-xl font-semibold text-ink">{activity.name}</h3>
+            <p className="mt-1.5 text-base leading-relaxed text-charcoal">{activity.description}</p>
             {activity.url && (
               <a
                 href={activity.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-block text-sm font-medium text-sky-700 underline"
+                className="mt-3 inline-flex items-center gap-1.5 text-base font-semibold text-link transition-colors hover:text-primary"
               >
                 Více informací
+                <ExternalLink size={16} strokeWidth={2} aria-hidden="true" />
               </a>
             )}
           </div>
         ))}
       </div>
 
-      <p className="mt-3 border-t border-gray-100 pt-3 text-sm text-gray-700">
-        <span className="font-medium">Proč:</span> {recommendation.reason}
+      <p className="mt-5 border-t border-white/50 pt-4 text-base text-charcoal">
+        <span className="font-semibold text-ink">Proč:</span> {recommendation.reason}
       </p>
     </article>
   );

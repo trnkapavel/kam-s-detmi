@@ -1,18 +1,21 @@
+import { Loader2 } from "lucide-react";
+
 type LoadingSpinnerProps = {
   label?: string;
   size?: "sm" | "md";
 };
 
 export function LoadingSpinner({ label, size = "md" }: LoadingSpinnerProps) {
-  const sizeClass = size === "sm" ? "h-5 w-5 border-2" : "h-8 w-8 border-[3px]";
+  const sizeClass = size === "sm" ? "h-6 w-6" : "h-10 w-10";
 
   return (
-    <div className="flex flex-col items-center justify-center gap-3" role="status" aria-live="polite">
-      <div
-        className={`${sizeClass} animate-spin rounded-full border-sky-200 border-t-sky-600`}
+    <div className="flex flex-col items-center justify-center gap-4" role="status" aria-live="polite">
+      <Loader2
+        className={`${sizeClass} animate-spin text-primary`}
+        strokeWidth={2.5}
         aria-hidden="true"
       />
-      {label && <p className="text-sm text-gray-600">{label}</p>}
+      {label && <p className="text-base text-slate">{label}</p>}
     </div>
   );
 }

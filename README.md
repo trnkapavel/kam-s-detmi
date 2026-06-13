@@ -21,6 +21,7 @@ Chytrá webová aplikace pro rodiče — popíšeš situaci (jak se cítíš, co
 | [docs/roadmap/milestones.md](docs/roadmap/milestones.md) | Milestony a regionální vlny |
 | [docs/security/plan-audit.md](docs/security/plan-audit.md) | Security audit plánu |
 | [docs/data/activity-schema.md](docs/data/activity-schema.md) | Schéma dat aktivit |
+| [docs/design/ui-notion-adaptation.md](docs/design/ui-notion-adaptation.md) | Notion UI design spec |
 | [docs/deploy.md](docs/deploy.md) | Návod na deploy (Vercel) |
 
 ## Tech stack (MVP)

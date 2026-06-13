@@ -1,9 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/Button";
+import { GlassCard } from "@/components/ui/GlassCard";
 import { OptionButton } from "@/components/ui/OptionButton";
+import { TextInput } from "@/components/ui/TextInput";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 import { WEATHER_OPTIONS } from "@/lib/constants";
+import { Icon, WEATHER_ICONS, MapPin, Thermometer, RefreshCw } from "@/lib/icons";
 import { weatherLabel } from "@/lib/labels";
 import { fetchWeather } from "@/lib/weather";
 import type { WeatherCondition } from "@/types";
@@ -94,79 +98,80 @@ export function WeatherStep({
     onWeatherReady(true, "manual");
   }
 
-  const previewEmoji =
-    WEATHER_OPTIONS.find((option) => option.value === weatherCondition)?.emoji ?? "🌡️";
+  const WeatherIcon = WEATHER_ICONS[weatherCondition];
 
   return (
-    <div className="space-y-5">
-      <h2 className="text-xl font-bold text-gray-900">Jaké je počasí?</h2>
-
+    <div className="space-y-6">
       {weatherAuto && !manualOverride && (
-        <div className="rounded-2xl border border-sky-200 bg-sky-50 p-4">
+        <GlassCard className="bg-card-sky p-5" variant="tint">
           {loading ? (
             <LoadingSpinner label={`Načítám počasí pro ${mesto}…`} size="sm" />
           ) : (
             <>
-              <p className="text-lg font-semibold text-sky-900">
-                {previewEmoji} {weatherLabel(weatherCondition)} · {weatherTemp} °C
-              </p>
-              <p className="mt-1 text-sm text-sky-700">
-                Aktuální počasí pro {mesto}
-                {loadedFor === mesto ? " · načteno z Open-Meteo" : ""}
-              </p>
-              <button
-                type="button"
-                onClick={handleManualOverride}
-                className="mt-3 text-sm font-medium text-sky-800 underline"
-              >
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/60 text-link">
+                  <WeatherIcon size={26} strokeWidth={2} aria-hidden="true" />
+                </div>
+                <div>
+                  <p className="text-xl font-bold text-ink">
+                    {weatherLabel(weatherCondition)} · {weatherTemp} °C
+                  </p>
+                  <p className="mt-0.5 flex items-center gap-1.5 text-[15px] text-slate">
+                    <MapPin size={14} aria-hidden="true" />
+                    {mesto}
+                    {loadedFor === mesto ? " · Open-Meteo" : ""}
+                  </p>
+                </div>
+              </div>
+              <Button variant="link" onClick={handleManualOverride} className="mt-4">
                 Upravit ručně
-              </button>
+              </Button>
             </>
           )}
-        </div>
+        </GlassCard>
       )}
 
       {(!weatherAuto || manualOverride) && (
         <>
-          <p className="text-sm text-gray-600">Vyber počasí ručně.</p>
+          <p className="text-base text-slate">Vyber počasí ručně.</p>
           <div>
-            <p className="mb-2 text-sm font-medium text-gray-700">Počasí</p>
-            <div className="grid grid-cols-2 gap-2">
+            <p className="mb-3 text-[15px] font-medium text-slate">Počasí</p>
+            <div className="grid grid-cols-2 gap-2.5">
               {WEATHER_OPTIONS.map((option) => (
                 <OptionButton
                   key={option.value}
                   selected={weatherCondition === option.value}
                   onClick={() => onWeatherConditionChange(option.value)}
+                  icon={<Icon icon={WEATHER_ICONS[option.value]} size={18} />}
                 >
-                  {option.emoji} {option.label}
+                  {option.label}
                 </OptionButton>
               ))}
             </div>
           </div>
           <div>
-            <label htmlFor="temp" className="mb-2 block text-sm font-medium text-gray-700">
+            <label htmlFor="temp" className="mb-2 flex items-center gap-1.5 text-[15px] font-medium text-slate">
+              <Thermometer size={16} aria-hidden="true" />
               Teplota (°C)
             </label>
-            <input
+            <TextInput
               id="temp"
               type="number"
               value={weatherTemp}
               onChange={(event) => onWeatherTempChange(Number(event.target.value))}
-              className="min-h-11 w-full rounded-xl border border-gray-300 px-4"
             />
           </div>
-          <button
-            type="button"
-            onClick={handleEnableAuto}
-            className="text-sm font-medium text-sky-700 underline"
-          >
+          <Button variant="link" onClick={handleEnableAuto} className="flex items-center gap-1.5">
+            <RefreshCw size={16} aria-hidden="true" />
             Znovu načíst automaticky
-          </button>
+          </Button>
         </>
       )}
 
       {error && (
-        <p className="rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-900">{error}</p>
+        <p className="rounded-xl bg-card-peach px-4 py-3.5 text-base text-brand-orange glass-tint animate-in">
+          {error}
+        </p>
       )}
     </div>
   );
