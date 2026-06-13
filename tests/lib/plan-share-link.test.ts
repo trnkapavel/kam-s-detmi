@@ -30,4 +30,15 @@ describe("plan-share-link", () => {
     const token = new URL(url).searchParams.get("s");
     expect(decodeCheckInShare(token!)).toEqual(checkIn);
   });
+
+  it("roundtrips using browser-style base64 without Buffer", () => {
+    const originalBuffer = globalThis.Buffer;
+    // @ts-expect-error test-only
+    delete globalThis.Buffer;
+
+    const token = encodeCheckInShare(checkIn);
+    expect(decodeCheckInShare(token)).toEqual(checkIn);
+
+    globalThis.Buffer = originalBuffer;
+  });
 });

@@ -27,7 +27,9 @@ export function googleMapsLink(activity: Activity, placeMapsUrl?: string): strin
     return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
   }
 
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${activity.name} ${activity.region.mesto}`)}`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    `${activity.name} ${activity.region?.mesto ?? ""}`.trim(),
+  )}`;
 }
 
 export function mapsLinkForActivity(activity: Activity, placeMapsUrl?: string): string {

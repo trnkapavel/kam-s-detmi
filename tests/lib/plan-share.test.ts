@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
   buildPlanSharePayload,
+  buildPlanShareShortText,
   buildPlanShareText,
+  buildShareAttempts,
   canUseNativeShare,
 } from "@/lib/plan-share";
 import type { CheckIn, Recommendation } from "@/types";
@@ -107,6 +109,39 @@ describe("buildPlanSharePayload", () => {
     expect(payload.url).toContain("https://example.com/vysledky?s=");
     expect(payload.text).toContain("Společně");
     expect(payload.text).toContain(payload.url);
+    expect(payload.shortText).toContain(payload.url);
+    expect(payload.shortText.length).toBeLessThan(payload.text.length);
+  });
+});
+
+describe("buildPlanShareShortText", () => {
+  it("summarizes top activities and keeps the share link", () => {
+    const shortText = buildPlanShareShortText({
+      checkIn,
+      recommendations,
+      appUrl: "https://example.com/vysledky?s=abc",
+    });
+
+    expect(shortText).toContain("Praha");
+    expect(shortText).toContain("Zoo Praha");
+    expect(shortText).toContain("https://example.com/vysledky?s=abc");
+  });
+});
+
+describe("buildShareAttempts", () => {
+  it("prefers url-first share for Safari compatibility", () => {
+    const payload = buildPlanSharePayload({
+      checkIn,
+      recommendations: [recommendations[0]],
+      origin: "https://example.com",
+    });
+
+    const attempts = buildShareAttempts(payload);
+    expect(attempts[0]).toEqual({
+      title: payload.title,
+      url: payload.url,
+    });
+    expect(attempts.some((item) => item.text === payload.shortText)).toBe(true);
   });
 });
 

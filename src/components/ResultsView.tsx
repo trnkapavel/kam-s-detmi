@@ -1,3 +1,5 @@
+"use client";
+
 import type { RecommendResult } from "@/engine";
 import type { CheckIn, Recommendation } from "@/types";
 import { RECOMMENDATION_TYPE_LABELS } from "@/lib/constants";

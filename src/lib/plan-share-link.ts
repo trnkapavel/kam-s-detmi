@@ -7,34 +7,52 @@ type SharePayload = {
   c: CheckIn;
 };
 
-function toBase64Url(value: string): string {
-  if (typeof Buffer !== "undefined") {
-    return Buffer.from(value, "utf-8").toString("base64url");
+function bytesToBase64Url(bytes: Uint8Array): string {
+  let binary = "";
+  for (const byte of bytes) {
+    binary += String.fromCharCode(byte);
   }
 
-  const base64 = btoa(
-    encodeURIComponent(value).replace(/%([0-9A-F]{2})/g, (_, hex: string) =>
-      String.fromCharCode(Number.parseInt(hex, 16)),
-    ),
-  );
+  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+}
 
-  return base64.replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+function base64UrlToBytes(token: string): Uint8Array {
+  const base64 = token.replace(/-/g, "+").replace(/_/g, "/");
+  const padded = base64 + "=".repeat((4 - (base64.length % 4)) % 4);
+  const binary = atob(padded);
+  const bytes = new Uint8Array(binary.length);
+
+  for (let index = 0; index < binary.length; index += 1) {
+    bytes[index] = binary.charCodeAt(index);
+  }
+
+  return bytes;
+}
+
+function toBase64Url(value: string): string {
+  if (typeof Buffer !== "undefined") {
+    try {
+      return Buffer.from(value, "utf-8").toString("base64url");
+    } catch {
+      // Some browser polyfills lack base64url — use TextEncoder below.
+    }
+  }
+
+  return bytesToBase64Url(new TextEncoder().encode(value));
 }
 
 function fromBase64Url(token: string): string {
-  const base64 = token.replace(/-/g, "+").replace(/_/g, "/");
-  const padded = base64 + "=".repeat((4 - (base64.length % 4)) % 4);
-
   if (typeof Buffer !== "undefined") {
-    return Buffer.from(padded, "base64").toString("utf-8");
+    try {
+      const base64 = token.replace(/-/g, "+").replace(/_/g, "/");
+      const padded = base64 + "=".repeat((4 - (base64.length % 4)) % 4);
+      return Buffer.from(padded, "base64").toString("utf-8");
+    } catch {
+      // Fall through to browser decoding.
+    }
   }
 
-  return decodeURIComponent(
-    atob(padded)
-      .split("")
-      .map((char) => `%${char.charCodeAt(0).toString(16).padStart(2, "0")}`)
-      .join(""),
-  );
+  return new TextDecoder().decode(base64UrlToBytes(token));
 }
 
 export function encodeCheckInShare(checkIn: CheckIn): string {
