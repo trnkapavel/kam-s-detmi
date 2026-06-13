@@ -38,12 +38,33 @@ git push -u origin main
 
 ---
 
-## Vercel nastavení (už hotovo u tebe)
+## Vercel nastavení
 
-- **Framework:** Next.js (auto-detect)
-- **Build Command:** `npm run build`
-- **Production branch:** `main`
-- **Env variables:** žádné povinné pro MVP
+V **Project Settings → General → Build & Development Settings**:
+
+| Pole | Hodnota |
+|------|---------|
+| **Framework Preset** | Next.js |
+| **Build Command** | `npm run build` (nebo prázdné — bere z `vercel.json`) |
+| **Output Directory** | **prázdné** (NE `public`!) |
+| **Install Command** | `npm install` |
+| **Root Directory** | `.` (kořen repa) |
+
+> **Častá chyba:** Output Directory = `public` → Vercel hledá statický export místo Next.js buildu.  
+> Soubor `vercel.json` v repu vynucuje framework `nextjs`.
+
+---
+
+## Troubleshooting
+
+### „No Output Directory named public found"
+
+1. Vercel Dashboard → Project → **Settings → General**
+2. **Output Directory** smaž / nech prázdné
+3. **Framework Preset** nastav na **Next.js**
+4. Redeploy (nebo push znovu)
+
+Repozitář obsahuje `vercel.json` s `"framework": "nextjs"`.
 
 ---
 
