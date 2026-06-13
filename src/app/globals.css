@@ -31,6 +31,9 @@
   --glass-border: rgba(255, 255, 255, 0.72);
   --glass-shadow: 0 8px 32px rgba(86, 69, 212, 0.1);
   --glass-blur: 20px;
+  --btn-disabled-bg: #e4e2de;
+  --btn-disabled-text: #9a9790;
+  --btn-disabled-border: #d0cdc6;
 }
 
 @theme inline {
@@ -57,6 +60,9 @@
   --color-card-lavender: var(--card-lavender);
   --color-card-rose: var(--card-rose);
   --color-semantic-error: var(--semantic-error);
+  --color-btn-disabled-bg: var(--btn-disabled-bg);
+  --color-btn-disabled-text: var(--btn-disabled-text);
+  --color-btn-disabled-border: var(--btn-disabled-border);
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --radius-md: 10px;
   --radius-lg: 16px;
@@ -280,6 +286,7 @@ body {
 /* ── Buttons ── */
 .btn-glow {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  border: 1px solid transparent;
   box-shadow: 0 4px 16px rgba(86, 69, 212, 0.35);
   transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
     box-shadow 0.22s ease,
@@ -297,10 +304,13 @@ body {
 }
 
 .btn-glow:disabled {
-  background: var(--surface);
-  color: var(--steel);
+  background: var(--btn-disabled-bg);
+  color: var(--btn-disabled-text);
+  border: 1px solid var(--btn-disabled-border);
   box-shadow: none;
   opacity: 1;
+  transform: none;
+  cursor: not-allowed;
 }
 
 .btn-glass {
