@@ -2,14 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { GlassCard } from "@/components/ui/GlassCard";
 import { OptionButton } from "@/components/ui/OptionButton";
 import { TextInput } from "@/components/ui/TextInput";
-import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
+import { WeatherHeroCard } from "@/components/check-in/WeatherHeroCard";
 import { WEATHER_OPTIONS } from "@/lib/constants";
-import { Icon, WEATHER_ICONS, MapPin, Thermometer, RefreshCw } from "@/lib/icons";
-import { weatherLabel } from "@/lib/labels";
-import { fetchWeather } from "@/lib/weather";
+import { Icon, WEATHER_ICONS, Thermometer, RefreshCw } from "@/lib/icons";
+import { fetchWeather, isCurrentlyDay, type HourlyForecast } from "@/lib/weather";
 import type { WeatherCondition } from "@/types";
 
 type WeatherStepProps = {
@@ -37,6 +35,8 @@ export function WeatherStep({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loadedFor, setLoadedFor] = useState<string | null>(null);
+  const [hourlyForecast, setHourlyForecast] = useState<HourlyForecast[]>([]);
+  const [isDay, setIsDay] = useState(true);
 
   useEffect(() => {
     if (!weatherAuto || manualOverride) {
@@ -56,6 +56,8 @@ export function WeatherStep({
         }
         onWeatherConditionChange(weather.condition);
         onWeatherTempChange(weather.temp);
+        setHourlyForecast(weather.hourly);
+        setIsDay(weather.isDay);
         setLoadedFor(mesto);
         onWeatherReady(true, "api");
       })
@@ -66,6 +68,7 @@ export function WeatherStep({
         setError("Počasí se nepodařilo načíst — přepni na ruční výběr.");
         onWeatherAutoChange(false);
         setManualOverride(true);
+        setHourlyForecast([]);
         onWeatherReady(true, "manual");
       })
       .finally(() => {
@@ -95,45 +98,29 @@ export function WeatherStep({
   function handleManualOverride() {
     setManualOverride(true);
     onWeatherAutoChange(false);
+    setHourlyForecast([]);
     onWeatherReady(true, "manual");
   }
 
-  const WeatherIcon = WEATHER_ICONS[weatherCondition];
+  const isAutoView = weatherAuto && !manualOverride;
+  const displayIsDay = isAutoView ? isDay : isCurrentlyDay();
 
   return (
     <div className="space-y-6">
-      {weatherAuto && !manualOverride && (
-        <GlassCard className="bg-card-sky p-5" variant="tint">
-          {loading ? (
-            <LoadingSpinner label={`Načítám počasí pro ${mesto}…`} size="sm" />
-          ) : (
-            <>
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/60 text-link">
-                  <WeatherIcon size={26} strokeWidth={2} aria-hidden="true" />
-                </div>
-                <div>
-                  <p className="text-xl font-bold text-ink">
-                    {weatherLabel(weatherCondition)} · {weatherTemp} °C
-                  </p>
-                  <p className="mt-0.5 flex items-center gap-1.5 text-[15px] text-slate">
-                    <MapPin size={14} aria-hidden="true" />
-                    {mesto}
-                    {loadedFor === mesto ? " · Open-Meteo" : ""}
-                  </p>
-                </div>
-              </div>
-              <Button variant="link" onClick={handleManualOverride} className="mt-4">
-                Upravit ručně
-              </Button>
-            </>
-          )}
-        </GlassCard>
-      )}
+      <WeatherHeroCard
+        condition={weatherCondition}
+        temp={weatherTemp}
+        mesto={mesto}
+        isDay={displayIsDay}
+        hourly={isAutoView ? hourlyForecast : []}
+        loading={isAutoView && loading}
+        showSource={isAutoView && loadedFor === mesto}
+        onEditManual={isAutoView && !loading ? handleManualOverride : undefined}
+      />
 
       {(!weatherAuto || manualOverride) && (
         <>
-          <p className="text-base text-slate">Vyber počasí ručně.</p>
+          <p className="text-base text-slate">Vyber počasí ručně — animace se přizpůsobí výběru.</p>
           <div>
             <p className="mb-3 text-[15px] font-medium text-slate">Počasí</p>
             <div className="grid grid-cols-2 gap-2.5">
