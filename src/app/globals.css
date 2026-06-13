@@ -296,6 +296,13 @@ body {
   box-shadow: 0 2px 10px rgba(86, 69, 212, 0.3);
 }
 
+.btn-glow:disabled {
+  background: var(--surface);
+  color: var(--steel);
+  box-shadow: none;
+  opacity: 1;
+}
+
 .btn-glass {
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(12px);
