@@ -140,6 +140,7 @@ describe("T2: bazén vs. les, energický rodič, slunečno", () => {
 
     expect(overlap).toBeDefined();
     expect(overlap?.activities[0]?.id).toBe("praha-hostivarska-prehrada");
+    expect(overlap?.childNotes?.length).toBe(2);
   });
 
   it("nabídne sequential plán pro energického rodiče", () => {
@@ -148,6 +149,8 @@ describe("T2: bazén vs. les, energický rodič, slunečno", () => {
 
     expect(sequential).toBeDefined();
     expect(sequential?.activities).toHaveLength(2);
+    expect(sequential?.schedule?.length).toBeGreaterThanOrEqual(2);
+    expect(sequential?.childNotes?.length).toBeGreaterThanOrEqual(2);
 
     const [first, second] = sequential!.activities;
     const child1Types = new Set(first.tags.type);
@@ -186,6 +189,7 @@ describe("T3: obě děti chtějí zoo", () => {
 
     expect(result.recommendations[0]?.activities[0]?.id).toBe("praha-zoo");
     expect(result.recommendations[0]?.score).toBeGreaterThan(0);
+    expect(result.recommendations[0]?.childNotes?.length).toBe(2);
   });
 
   it("nepoužije conflict resolvery", () => {

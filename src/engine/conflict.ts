@@ -7,6 +7,9 @@ import type {
   ScoredActivity,
 } from "@/types";
 import { getSharedWants } from "@/lib/children";
+import { buildChildNotes } from "./child-notes";
+import { haversineKm } from "./geo";
+import { buildSchedule } from "./schedule";
 import { scoreActivity } from "./score";
 
 const MAX_SEQUENTIAL_DISTANCE_KM = 15;
@@ -25,23 +28,6 @@ function matchesWants(activity: Activity, wants: ActivityType[]): boolean {
 
 function isOverlapActivity(activity: Activity, checkIn: CheckIn): boolean {
   return checkIn.children.every((child) => matchesWants(activity, child.wants));
-}
-
-function haversineKm(
-  a: { lat: number; lng: number },
-  b: { lat: number; lng: number },
-): number {
-  const toRad = (deg: number) => (deg * Math.PI) / 180;
-  const dLat = toRad(b.lat - a.lat);
-  const dLng = toRad(b.lng - a.lng);
-  const lat1 = toRad(a.lat);
-  const lat2 = toRad(b.lat);
-
-  const h =
-    Math.sin(dLat / 2) ** 2 +
-    Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
-
-  return 6371 * 2 * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
 }
 
 function findOverlap(
@@ -245,6 +231,62 @@ function findSingleMatches(scored: ScoredActivity[]): Recommendation[] {
   }));
 }
 
+function findAlternativeId(
+  type: Recommendation["type"],
+  primaryIds: Set<string>,
+  scored: ScoredActivity[],
+  checkIn: CheckIn,
+): string | undefined {
+  for (const { activity, score } of scored) {
+    if (score <= 0 || primaryIds.has(activity.id)) {
+      continue;
+    }
+
+    if (type === "single") {
+      return activity.id;
+    }
+
+    if (type === "overlap" && isOverlapActivity(activity, checkIn)) {
+      return activity.id;
+    }
+
+    if (activity.conflictResolvers.includes(type as ConflictResolver)) {
+      return activity.id;
+    }
+  }
+
+  return undefined;
+}
+
+function enrichRecommendation(
+  recommendation: Recommendation,
+  checkIn: CheckIn,
+  scored: ScoredActivity[],
+): Recommendation {
+  const primaryIds = new Set(recommendation.activities.map((activity) => activity.id));
+  const enriched: Recommendation = {
+    ...recommendation,
+    childNotes: buildChildNotes(recommendation.type, recommendation.activities, checkIn),
+    alternativeId: findAlternativeId(recommendation.type, primaryIds, scored, checkIn),
+  };
+
+  if (recommendation.type === "sequential" && recommendation.activities.length >= 2) {
+    enriched.schedule = buildSchedule(checkIn.parent.timeAvailable, recommendation.activities);
+  }
+
+  return enriched;
+}
+
+function enrichRecommendations(
+  recommendations: Recommendation[],
+  checkIn: CheckIn,
+  scored: ScoredActivity[],
+): Recommendation[] {
+  return recommendations.map((recommendation) =>
+    enrichRecommendation(recommendation, checkIn, scored),
+  );
+}
+
 export function resolveConflict(
   scored: ScoredActivity[],
   checkIn: CheckIn,
@@ -279,11 +321,11 @@ export function buildRecommendations(
   scored: ScoredActivity[],
   checkIn: CheckIn,
 ): Recommendation[] {
-  if (!hasConflict(checkIn)) {
-    return findSingleMatches(scored);
-  }
+  const recommendations = !hasConflict(checkIn)
+    ? findSingleMatches(scored)
+    : resolveConflict(scored, checkIn);
 
-  return resolveConflict(scored, checkIn);
+  return enrichRecommendations(recommendations, checkIn, scored);
 }
 
 export function topActivityForChild(

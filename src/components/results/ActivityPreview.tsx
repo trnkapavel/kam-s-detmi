@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import type { Activity, ActivityPlace } from "@/types";
 import { ACTIVITY_HERO_BACKGROUNDS, primaryActivityType } from "@/lib/activity-type";
+import { mapsLinkForActivity } from "@/lib/maps-links";
 import {
   ageRangeLabel,
   activityLabel,
@@ -78,7 +79,8 @@ function ActivityPreviewContent({
                 setImageError(true);
               }}
             />
-            <div className="absolute bottom-3 left-3">
+            <div className="activity-hero-scrim" aria-hidden="true" />
+            <div className="absolute bottom-3 left-3 z-10">
               <StarRating rating={place.rating} reviewCount={place.reviewCount} />
             </div>
           </div>
@@ -128,13 +130,14 @@ function ActivityHero({
       <div className="absolute inset-0 flex items-center justify-center px-10 py-6">
         <ActivityTypeIllustration type={type} className="h-full max-h-[150px] w-full" />
       </div>
-      <div className="absolute top-3 left-3">
+      <div className="activity-hero-scrim" aria-hidden="true" />
+      <div className="absolute top-3 left-3 z-10">
         <span className="inline-flex rounded-lg bg-white/85 px-2.5 py-1 text-sm font-semibold text-primary shadow-sm backdrop-blur-sm">
           {activityLabel(type)}
         </span>
       </div>
       {showIllustrationBadge && (
-        <div className="absolute top-3 right-3">
+        <div className="absolute top-3 right-3 z-10">
           <span className="rounded-lg bg-white/70 px-2 py-1 text-[12px] font-medium text-steel backdrop-blur-sm">
             Ilustrace
           </span>
@@ -201,7 +204,7 @@ function ActivityDetails({
 
       {place && (
         <div className="flex flex-wrap gap-2 pt-1">
-          <a href={place.mapsUrl} target="_blank" rel="noopener noreferrer">
+          <a href={mapsLinkForActivity(activity, place.mapsUrl)} target="_blank" rel="noopener noreferrer">
             <Button variant="secondary" className="min-h-10 px-4 text-sm">
               <Navigation size={16} aria-hidden="true" />
               Mapy

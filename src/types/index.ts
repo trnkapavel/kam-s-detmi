@@ -82,11 +82,20 @@ export type CheckIn = {
 
 export type RecommendationType = ConflictResolver | "single";
 
+export type ScheduleSlot = {
+  label: string;
+  timeHint: string;
+  activityId: string;
+};
+
 export type Recommendation = {
   type: RecommendationType;
   activities: Activity[];
   reason: string;
   score: number;
+  schedule?: ScheduleSlot[];
+  childNotes?: string[];
+  alternativeId?: string;
 };
 
 export type ActivitiesFile = {

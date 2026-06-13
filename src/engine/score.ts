@@ -8,6 +8,7 @@ import type {
   WeatherCondition,
   WeatherTag,
 } from "@/types";
+import { distanceScoreAdjustment } from "./distance-score";
 
 const ENERGY_MAP: Record<ParentEnergy, EnergyLevel[]> = {
   tired: ["low"],
@@ -76,6 +77,8 @@ export function scoreActivity(activity: Activity, checkIn: CheckIn): number {
   if (checkIn.weather.condition === "snow" && isOutdoor(activity)) {
     score -= 20;
   }
+
+  score += distanceScoreAdjustment(activity, checkIn);
 
   return score;
 }

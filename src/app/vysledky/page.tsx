@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import {
   RecommendationCard,
   ResultsSummary,
@@ -13,15 +14,19 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { PageShell } from "@/components/ui/PageShell";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
 import { ResultsJourneyIllustration } from "@/components/illustrations/ResultsJourneyIllustration";
-import { clearCheckIn, loadCheckIn } from "@/lib/check-in-session";
+import { clearCheckIn, loadCheckIn, saveCheckIn } from "@/lib/check-in-session";
+import { decodeCheckInShare } from "@/lib/plan-share-link";
 import { ArrowRight, RefreshCw, Sparkles } from "@/lib/icons";
 import type { CheckIn } from "@/types";
 
-export default function VysledkyPage() {
+function VysledkyContent() {
+  const searchParams = useSearchParams();
   const [checkIn, setCheckIn] = useState<CheckIn | null>(null);
   const [result, setResult] = useState<RecommendResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [shareError, setShareError] = useState(false);
+  const [isSharedPlan, setIsSharedPlan] = useState(false);
 
   const fetchRecommendations = useCallback(async (stored: CheckIn) => {
     setLoading(true);
@@ -48,15 +53,32 @@ export default function VysledkyPage() {
   }, []);
 
   useEffect(() => {
-    const stored = loadCheckIn();
+    const shareToken = searchParams.get("s");
+    let stored: CheckIn | null = null;
+    let fromShare = false;
+
+    if (shareToken) {
+      stored = decodeCheckInShare(shareToken);
+      if (!stored) {
+        setShareError(true);
+        setLoading(false);
+        return;
+      }
+      fromShare = true;
+      saveCheckIn(stored);
+    } else {
+      stored = loadCheckIn();
+    }
+
     if (!stored) {
       setLoading(false);
       return;
     }
 
     setCheckIn(stored);
+    setIsSharedPlan(fromShare);
     void fetchRecommendations(stored);
-  }, [fetchRecommendations]);
+  }, [fetchRecommendations, searchParams]);
 
   function handleNewCheckIn() {
     clearCheckIn();
@@ -67,6 +89,22 @@ export default function VysledkyPage() {
       <PageShell className="flex min-h-screen items-center justify-center p-4 lg:px-8">
         <GlassCard className="w-full max-w-md p-10 animate-scale-in lg:max-w-lg">
           <LoadingSpinner label="Hledám tipy…" />
+        </GlassCard>
+      </PageShell>
+    );
+  }
+
+  if (shareError) {
+    return (
+      <PageShell className="flex min-h-screen flex-col items-center justify-center gap-6 p-4 text-center lg:px-8">
+        <GlassCard className="w-full max-w-sm space-y-4 p-8 animate-in-up lg:max-w-md">
+          <p className="text-lg text-charcoal">Sdílený odkaz je neplatný nebo poškozený.</p>
+          <Link href="/" className="block">
+            <Button fullWidth>
+              Začít vlastní check-in
+              <ArrowRight size={20} aria-hidden="true" />
+            </Button>
+          </Link>
         </GlassCard>
       </PageShell>
     );
@@ -93,6 +131,14 @@ export default function VysledkyPage() {
 
   return (
     <PageShell className="min-h-screen p-4 pb-safe lg:px-8">
+      {isSharedPlan && (
+        <GlassCard className="mb-4 bg-card-sky p-4 animate-in lg:mb-6" variant="tint">
+          <p className="text-[15px] font-medium text-charcoal">
+            Sdílený plán — tipy podle situace, kterou poslal někdo jiný.
+          </p>
+        </GlassCard>
+      )}
+
       <div className="flex flex-col gap-6 lg:grid lg:grid-cols-[minmax(280px,320px)_minmax(0,1fr)] lg:items-start lg:gap-10">
         <aside className="space-y-6 lg:sticky lg:top-6">
           <header className="animate-in-up">
@@ -103,11 +149,11 @@ export default function VysledkyPage() {
                     <ResultsJourneyIllustration className="h-auto w-full" />
                   </CardIllustration>
                 </div>
-                <div className="relative z-10 flex max-w-[62%] items-center gap-3 sm:max-w-[68%] lg:max-w-none">
+                <div className="relative z-10 flex min-w-0 items-center gap-3">
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
                     <Sparkles size={22} aria-hidden="true" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <h1 className="text-[26px] font-bold tracking-tight text-ink lg:text-[28px]">
                       Tvoje tipy
                     </h1>
@@ -131,48 +177,70 @@ export default function VysledkyPage() {
         </aside>
 
         <div className="flex flex-col gap-6">
-      {error && (
-        <GlassCard className="space-y-4 bg-card-rose p-5 animate-in" variant="tint">
-          <p className="text-base text-semantic-error">{error}</p>
-          <Button variant="secondary" onClick={() => void fetchRecommendations(checkIn)}>
-            <RefreshCw size={18} aria-hidden="true" />
-            Zkusit znovu
-          </Button>
-        </GlassCard>
-      )}
+          {error && (
+            <GlassCard className="space-y-4 bg-card-rose p-5 animate-in" variant="tint">
+              <p className="text-base text-semantic-error">{error}</p>
+              <Button variant="secondary" onClick={() => void fetchRecommendations(checkIn)}>
+                <RefreshCw size={18} aria-hidden="true" />
+                Zkusit znovu
+              </Button>
+            </GlassCard>
+          )}
 
-      {!error && result && result.filteredCount === 0 && (
-        <GlassCard className="p-5 animate-in">
-          <p className="text-base text-charcoal">
-            V tvém okolí zatím nemáme tipy. Zkus jiné město nebo kraj.
+          {!error && result && result.filteredCount === 0 && (
+            <GlassCard className="p-5 animate-in">
+              <p className="text-base text-charcoal">
+                V tvém okolí zatím nemáme tipy. Zkus jiné město nebo kraj.
+              </p>
+            </GlassCard>
+          )}
+
+          {!error && result && result.recommendations.length > 0 && (
+            <div className="flex flex-col gap-4">
+              {result.recommendations.map((recommendation, index) => (
+                <RecommendationCard
+                  key={`${recommendation.type}-${index}`}
+                  recommendation={recommendation}
+                  index={index}
+                  sharePlan={
+                    index === 0
+                      ? { checkIn, recommendations: result.recommendations }
+                      : undefined
+                  }
+                />
+              ))}
+            </div>
+          )}
+
+          <p className="animate-in px-1 text-[15px] leading-relaxed text-steel">
+            Tipy jsou orientační — fotky jsou z Wikimedia Commons, kde chybí zdroj, zobrazí se
+            ilustrace. Ověř si aktuální otevírací dobu a ceny.
           </p>
-        </GlassCard>
-      )}
 
-      {!error && result && result.recommendations.length > 0 && (
-        <div className="flex flex-col gap-4">
-          {result.recommendations.map((recommendation, index) => (
-            <RecommendationCard
-              key={`${recommendation.type}-${index}`}
-              recommendation={recommendation}
-              index={index}
-            />
-          ))}
-        </div>
-      )}
-
-      <p className="animate-in px-1 text-[15px] leading-relaxed text-steel">
-        Tipy jsou orientační — fotky jsou z Wikimedia Commons, kde chybí zdroj, zobrazí se ilustrace. Ověř si aktuální otevírací dobu a ceny.
-      </p>
-
-      <Link href="/" onClick={handleNewCheckIn} className="block animate-in-up lg:hidden">
-        <Button fullWidth>
-          Nový check-in
-          <ArrowRight size={20} aria-hidden="true" />
-        </Button>
-      </Link>
+          <Link href="/" onClick={handleNewCheckIn} className="block animate-in-up lg:hidden">
+            <Button fullWidth>
+              Nový check-in
+              <ArrowRight size={20} aria-hidden="true" />
+            </Button>
+          </Link>
         </div>
       </div>
     </PageShell>
+  );
+}
+
+export default function VysledkyPage() {
+  return (
+    <Suspense
+      fallback={
+        <PageShell className="flex min-h-screen items-center justify-center p-4 lg:px-8">
+          <GlassCard className="w-full max-w-md p-10 animate-scale-in lg:max-w-lg">
+            <LoadingSpinner label="Načítám…" />
+          </GlassCard>
+        </PageShell>
+      }
+    >
+      <VysledkyContent />
+    </Suspense>
   );
 }

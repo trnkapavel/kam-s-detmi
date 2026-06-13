@@ -216,6 +216,15 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.6);
 }
 
+/* ── Activity result hero ── */
+.activity-hero-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
 /* ── Splash screen ── */
 .splash-hero-image {
   transform: scale(1.04);

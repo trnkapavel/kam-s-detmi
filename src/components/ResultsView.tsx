@@ -20,6 +20,7 @@ import {
   weatherLabel,
 } from "@/lib/labels";
 import { ActivityPreview } from "@/components/results/ActivityPreview";
+import { SharePlanButton } from "@/components/results/SharePlanButton";
 import { GlassCard } from "@/components/ui/GlassCard";
 
 type ResultsSummaryProps = {
@@ -81,9 +82,13 @@ export function ResultsSummary({ checkIn, conflict }: ResultsSummaryProps) {
 type RecommendationCardProps = {
   recommendation: Recommendation;
   index: number;
+  sharePlan?: {
+    checkIn: CheckIn;
+    recommendations: Recommendation[];
+  };
 };
 
-export function RecommendationCard({ recommendation, index }: RecommendationCardProps) {
+export function RecommendationCard({ recommendation, index, sharePlan }: RecommendationCardProps) {
   const typeLabel = RECOMMENDATION_TYPE_LABELS[recommendation.type] ?? recommendation.type;
   const styles = RECOMMENDATION_CARD_STYLES[recommendation.type];
   const TypeIcon = RECOMMENDATION_ICONS[recommendation.type];
@@ -93,13 +98,20 @@ export function RecommendationCard({ recommendation, index }: RecommendationCard
       className={`glass-tint rounded-xl p-6 ${styles.bg} animate-in-up`}
       style={{ animationDelay: `${0.08 * (index + 2)}s` }}
     >
-      <div className="mb-4">
+      <div className="mb-4 flex items-center justify-between gap-3">
         <span
           className={`inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-[15px] font-semibold ${styles.badgeText}`}
         >
           <Icon icon={TypeIcon} size={16} strokeWidth={2.5} />
           {typeLabel}
         </span>
+        {sharePlan && (
+          <SharePlanButton
+            checkIn={sharePlan.checkIn}
+            recommendations={sharePlan.recommendations}
+            variant="card"
+          />
+        )}
       </div>
 
       <div className="space-y-6">
