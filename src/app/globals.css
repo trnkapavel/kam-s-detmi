@@ -83,6 +83,10 @@ body {
   .pt-safe {
     padding-top: max(1rem, env(safe-area-inset-top));
   }
+
+  .pt-safe-chrome {
+    padding-top: env(safe-area-inset-top);
+  }
 }
 
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
@@ -96,12 +100,25 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 25;
   width: 100%;
   min-height: 6px;
   height: max(6px, env(safe-area-inset-top, 0px));
   background-color: var(--primary);
   pointer-events: none;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Covers subpixel gaps during iOS momentum / rubber-band scroll. */
+.safari-chrome-tint::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 4px;
+  background-color: var(--primary);
 }
 
 .app-shell {

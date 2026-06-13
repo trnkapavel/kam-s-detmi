@@ -12,7 +12,7 @@ export function AppBackground({ children }: AppBackgroundProps) {
         <div className="blob blob-2" />
         <div className="blob blob-3" />
       </div>
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 pt-safe-chrome">{children}</div>
     </div>
   );
 }
