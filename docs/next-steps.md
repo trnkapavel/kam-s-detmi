@@ -99,13 +99,27 @@ npm run dev   # http://localhost:3000
 
 ---
 
-## Deep day 7 (další)
+## Deep day 7 ✅ (2026-06-13)
 
 ### Dogfooding + iterace
 
-- [ ] 4 víkendové scénáře v `docs/feedback.md`
-- [ ] Doplnit Praha seed na ~25 aktivit
-- [ ] Deploy na Vercel (pokud ještě není)
+- [x] 10 scénářů v `tests/integration/dogfood-scenarios.test.ts` (D1–D10)
+- [x] 4 scénáře zdokumentovány v `docs/feedback.md` (simulace, čeká reálný víkend)
+- [x] Praha seed: **25 aktivit** (+9)
+- [x] **40 aktivit celkem** (25 + 15)
+- [x] Deploy Vercel ✅
+
+**Další:** Po 4 reálných víkendech vyplnit sekci „Reálné víkendy" v feedback.md
+
+---
+
+## Deep day 8 — Review (další)
+
+### Týden 12 review
+
+- [ ] Vyplnit reálné víkendy v feedback.md
+- [ ] Retrospektiva success metrics
+- [ ] Rozhodnutí: mobilka? LLM? vlna 2?
 
 ---
 

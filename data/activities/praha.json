@@ -3,7 +3,7 @@
     "kraj": "Praha",
     "version": "1.0",
     "updated": "2026-06-13",
-    "count": 16
+    "count": 25
   },
   "activities": [
     {
@@ -296,6 +296,154 @@
       },
       "conflictResolvers": ["compromise", "overlap"],
       "coordinates": { "lat": 50.0875, "lng": 14.4213 }
+    },
+    {
+      "id": "praha-narodni-muzeum",
+      "name": "Národní muzeum",
+      "description": "Hlavní budova na Václavském náměstí. Vhodné pro deštivé dny, starší děti.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["muzeum", "indoor", "mesto"],
+        "ageMin": 6,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["indoor_only", "any"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 50.079, "lng": 14.4306 },
+      "url": "https://www.nm.cz"
+    },
+    {
+      "id": "praha-vysehrad",
+      "name": "Vyšehrad",
+      "description": "Procházka parkem, hradbami a výhledy na Vltavu. Klidnější než centrum.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["hrad", "park", "mesto", "priroda"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "rain_ok"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 50.0644, "lng": 14.4189 },
+      "url": "https://www.praha-vysehrad.cz"
+    },
+    {
+      "id": "praha-detsky-ostrov",
+      "name": "Dětský ostrov",
+      "description": "Ostrov na Vltavě s dětským hřištěm a pískovištěm. Krátký výlet.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["park", "sport"],
+        "ageMin": 2,
+        "ageMax": 10,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "sunny"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 50.0667, "lng": 14.4089 }
+    },
+    {
+      "id": "praha-hamr-zbraslav",
+      "name": "Hamr Zbraslav",
+      "description": "Přírodní koupaliště na břehu Vltavy. Oblíbené za teplých dnů.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["koupaliste", "bazen", "priroda"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["medium"],
+        "weather": ["any", "sunny"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["overlap", "rotation"],
+      "coordinates": { "lat": 49.9708, "lng": 14.3967 }
+    },
+    {
+      "id": "praha-papilonia",
+      "name": "Papilonia — Motýlí dům",
+      "description": "Tropický skleník s motýly v Troji. Indoor příroda pro deštivé dny.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["indoor", "priroda", "muzeum"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["low"],
+        "weather": ["indoor_only", "any"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["compromise", "overlap"],
+      "coordinates": { "lat": 50.1178, "lng": 14.4128 },
+      "url": "https://www.papilonia.cz"
+    },
+    {
+      "id": "praha-letna",
+      "name": "Letenské sady",
+      "description": "Park s metronomem, lanovkou na Petřín a výhledy. Procházka pro celou rodinu.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["park", "mesto", "sport"],
+        "ageMin": 2,
+        "ageMax": 99,
+        "energyParent": ["low", "medium", "high"],
+        "weather": ["any", "sunny", "rain_ok"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 50.0944, "lng": 14.4117 }
+    },
+    {
+      "id": "praha-modranska-rokle",
+      "name": "Modřanská rokle",
+      "description": "Lesní stezky podél potoka v jižních částech Prahy. Klidná procházka.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["les", "priroda", "park"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["medium"],
+        "weather": ["any", "sunny"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["rotation", "sequential"],
+      "coordinates": { "lat": 50.0111, "lng": 14.4167 }
+    },
+    {
+      "id": "praha-hamr-bulovka",
+      "name": "Hamr na Bulánce",
+      "description": "Venkovní koupaliště v Krči. Klasická pražská letní destinace.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["koupaliste", "bazen"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["medium"],
+        "weather": ["any", "sunny"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["rotation", "compromise"],
+      "coordinates": { "lat": 50.0456, "lng": 14.4689 }
+    },
+    {
+      "id": "praha-kralovstvi-ziraf",
+      "name": "Království žiraf",
+      "description": "Kontaktní farma se zvířaty v Zájezdu u Prahy. Zážitek pro menší děti.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["zoo", "priroda", "park"],
+        "ageMin": 2,
+        "ageMax": 12,
+        "energyParent": ["medium"],
+        "weather": ["any", "rain_ok"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 50.1289, "lng": 14.1756 },
+      "url": "https://www.kralovstviziraf.cz"
     }
   ]
 }

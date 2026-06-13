@@ -4,7 +4,7 @@ import { loadActivitiesByKraj, loadAllActivities } from "@/lib/activities";
 describe("loadAllActivities", () => {
   it("načte aktivity z Prahy", () => {
     const activities = loadActivitiesByKraj("Praha");
-    expect(activities.length).toBe(16);
+    expect(activities.length).toBe(25);
   });
 
   it("načte aktivity ze Středních Čech", () => {
@@ -12,7 +12,7 @@ describe("loadAllActivities", () => {
     expect(activities.length).toBe(15);
   });
 
-  it("celkem má alespoň 31 aktivit", () => {
-    expect(loadAllActivities().length).toBeGreaterThanOrEqual(31);
+  it("celkem má 40 aktivit", () => {
+    expect(loadAllActivities().length).toBe(40);
   });
 });
