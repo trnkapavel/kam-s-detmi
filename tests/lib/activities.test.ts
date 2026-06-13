@@ -12,7 +12,12 @@ describe("loadAllActivities", () => {
     expect(activities.length).toBe(15);
   });
 
-  it("celkem má 40 aktivit", () => {
-    expect(loadAllActivities().length).toBe(40);
+  it("načte aktivity z Jihočeského kraje", () => {
+    const activities = loadActivitiesByKraj("Jihocesky");
+    expect(activities.length).toBe(15);
+  });
+
+  it("celkem má 55 aktivit", () => {
+    expect(loadAllActivities().length).toBe(55);
   });
 });

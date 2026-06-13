@@ -177,4 +177,17 @@ describe("Dogfood scénáře — simulace víkendového použití", () => {
     expect(result.recommendations.length).toBeLessThanOrEqual(5);
     expect(result.recommendations[0]?.activities[0]?.tags.type).toContain("park");
   });
+
+  it("D11: déšť, Jindřichův Hradec — zámek nebo bazén", () => {
+    const result = runScenario("D11", {
+      location: { mesto: "Jindřichův Hradec", kraj: "Jihocesky" },
+      parent: { energy: "ok", timeAvailable: "half_day" },
+      children: [{ age: 7, wants: ["hrad"], mood: "active" }],
+      weather: { condition: "rain", temp: 12, source: "manual" },
+    });
+
+    expect(result.recommendations.length).toBeGreaterThan(0);
+    const first = result.recommendations[0]?.activities[0];
+    expect(first?.region.kraj).toBe("Jihocesky");
+  });
 });

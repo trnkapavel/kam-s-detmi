@@ -639,5 +639,113 @@
       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Mlad%C3%A1_Boleslav%2C_park_%C5%A0t%C4%9Bp%C3%A1nka_%2803%29.jpg/1280px-Mlad%C3%A1_Boleslav%2C_park_%C5%A0t%C4%9Bp%C3%A1nka_%2803%29.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Mlad%C3%A1_Boleslav%2C_park_%C5%A0t%C4%9Bp%C3%A1nka%2C_tabule_DiscGolfPark_a_rozcestn%C3%ADk.jpg/1280px-Mlad%C3%A1_Boleslav%2C_park_%C5%A0t%C4%9Bp%C3%A1nka%2C_tabule_DiscGolfPark_a_rozcestn%C3%ADk.jpg"
     ]
+  },
+  "jihocesky-zamek-jindrichuv-hradec": {
+    "address": "Jindřichův Hradec",
+    "priceHint": "od 150 Kč vstup",
+    "openingHours": "9:00 – 17:00",
+    "rating": 4.6,
+    "reviewCount": 2100,
+    "highlights": ["Renesanční zámek", "Zahrady", "Prohlídky"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Jindrichuv_Hradec_Castle_01.jpg/1280px-Jindrichuv_Hradec_Castle_01.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Jindrichuv_Hradec_Castle_01.jpg/1280px-Jindrichuv_Hradec_Castle_01.jpg"
+    ]
+  },
+  "jihocesky-cervena-lhota": {
+    "address": "Červená Lhota",
+    "priceHint": "od 120 Kč vstup",
+    "openingHours": "9:00 – 17:00",
+    "rating": 4.7,
+    "reviewCount": 3400,
+    "highlights": ["Zámek u vody", "Fotogenické místo", "Procházka okolím"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Cervena_Lhota_%28z%C3%A1mek%29.jpg/1280px-Cervena_Lhota_%28z%C3%A1mek%29.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Cervena_Lhota_%28z%C3%A1mek%29.jpg/1280px-Cervena_Lhota_%28z%C3%A1mek%29.jpg"
+    ]
+  },
+  "jihocesky-hrad-landshtejn": {
+    "address": "Staré Hobzí",
+    "priceHint": "od 80 Kč vstup",
+    "openingHours": "9:00 – 18:00",
+    "rating": 4.5,
+    "reviewCount": 980,
+    "highlights": ["Gotická zřícenina", "Výhledy", "Lesní výlet"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Landstejn_Castle.jpg/1280px-Landstejn_Castle.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Landstejn_Castle.jpg/1280px-Landstejn_Castle.jpg"
+    ]
+  },
+  "jihocesky-cesky-krumlov": {
+    "address": "Český Krumlov",
+    "priceHint": "Procházka zdarma",
+    "openingHours": "Celoročně",
+    "rating": 4.8,
+    "reviewCount": 12500,
+    "highlights": ["UNESCO centrum", "Hrad", "Vltava"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Cesky_Krumlov_%28Czech_Republic%29.jpg/1280px-Cesky_Krumlov_%28Czech_Republic%29.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Cesky_Krumlov_%28Czech_Republic%29.jpg/1280px-Cesky_Krumlov_%28Czech_Republic%29.jpg"
+    ]
+  },
+  "jihocesky-zamek-hluboka": {
+    "address": "Hluboká nad Vltavou",
+    "priceHint": "od 200 Kč vstup",
+    "openingHours": "9:00 – 17:00",
+    "rating": 4.7,
+    "reviewCount": 5600,
+    "highlights": ["Novogotický zámek", "Anglický park", "Prohlídky"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Hluboka_nad_Vltavou_Castle.JPG/1280px-Hluboka_nad_Vltavou_Castle.JPG",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Hluboka_nad_Vltavou_Castle.JPG/1280px-Hluboka_nad_Vltavou_Castle.JPG"
+    ]
+  },
+  "jihocesky-zoo-hluboka": {
+    "address": "Hluboká nad Vltavou",
+    "priceHint": "od 180 Kč vstup",
+    "openingHours": "9:00 – 18:00",
+    "rating": 4.5,
+    "reviewCount": 3200,
+    "highlights": ["Africká savana", "Dětské hřiště", "Celodenní program"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Zoo_Hluboka_nad_Vltavou.jpg/1280px-Zoo_Hluboka_nad_Vltavou.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Zoo_Hluboka_nad_Vltavou.jpg/1280px-Zoo_Hluboka_nad_Vltavou.jpg"
+    ]
+  },
+  "jihocesky-trebon-rybniky": {
+    "address": "Třeboň",
+    "priceHint": "Procházka zdarma",
+    "openingHours": "Celoročně",
+    "rating": 4.4,
+    "reviewCount": 1100,
+    "highlights": ["Rybníky", "Lázeňský park", "Klidná procházka"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Trebon_Czech_Republic_02.jpg/1280px-Trebon_Czech_Republic_02.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Trebon_Czech_Republic_02.jpg/1280px-Trebon_Czech_Republic_02.jpg"
+    ]
+  },
+  "jihocesky-lipno-nad-vltavou": {
+    "address": "Lipno nad Vltavou",
+    "priceHint": "Ověř na webu",
+    "openingHours": "Sezónně",
+    "rating": 4.6,
+    "reviewCount": 2800,
+    "highlights": ["Přehrada", "Stezka v korunách", "Sport"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Lipno_nad_Vltavou_-_p%C5%99ehrada.jpg/1280px-Lipno_nad_Vltavou_-_p%C5%99ehrada.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Lipno_nad_Vltavou_-_p%C5%99ehrada.jpg/1280px-Lipno_nad_Vltavou_-_p%C5%99ehrada.jpg"
+    ]
+  },
+  "jihocesky-prasilsko": {
+    "address": "Prachatice",
+    "priceHint": "Parkovné / vstup dle NP",
+    "openingHours": "Celoročně",
+    "rating": 4.7,
+    "reviewCount": 1900,
+    "highlights": ["Ledovcové jezero", "Šumava", "Lesní stezky"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Prasilsko_lake.jpg/1280px-Prasilsko_lake.jpg",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Prasilsko_lake.jpg/1280px-Prasilsko_lake.jpg"
+    ]
   }
 }

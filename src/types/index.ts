@@ -13,7 +13,7 @@ export type ActivityType =
   | "priroda"
   | "mesto";
 
-export type Kraj = "Praha" | "Stredocesky";
+export type Kraj = "Praha" | "Stredocesky" | "Jihocesky";
 
 export type WeatherTag = "any" | "sunny" | "rain_ok" | "indoor_only";
 export type EnergyLevel = "low" | "medium" | "high";

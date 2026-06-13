@@ -1,0 +1,284 @@
+{
+  "meta": {
+    "kraj": "Jihocesky",
+    "version": "1.0",
+    "updated": "2026-06-13",
+    "count": 15
+  },
+  "activities": [
+    {
+      "id": "jihocesky-zamek-jindrichuv-hradec",
+      "name": "Zámek Jindřichův Hradec",
+      "description": "Renesanční zámek s prohlídkami a zahradami. Celodenní výlet do historie pro rodiny.",
+      "region": {
+        "kraj": "Jihocesky",
+        "okres": "Jindřichův Hradec",
+        "mesto": "Jindřichův Hradec"
+      },
+      "tags": {
+        "type": ["hrad", "mesto", "muzeum"],
+        "ageMin": 5,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "rain_ok"],
+        "duration": "full_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 49.1442, "lng": 15.0033 },
+      "url": "https://www.zamek-jindrichuvhradec.cz"
+    },
+    {
+      "id": "jihocesky-cervena-lhota",
+      "name": "Zámek Červená Lhota",
+      "description": "Romantický zámek u rybníka. Krátká procházka okolím a fotogenické výhledy.",
+      "region": {
+        "kraj": "Jihocesky",
+        "okres": "Jindřichův Hradec",
+        "mesto": "Jindřichův Hradec"
+      },
+      "tags": {
+        "type": ["hrad", "priroda", "park"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "sunny", "rain_ok"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 49.1177, "lng": 15.1839 },
+      "url": "https://www.zamek-cervenalhota.cz"
+    },
+    {
+      "id": "jihocesky-hrad-landshtejn",
+      "name": "Hrad Landštejn",
+      "description": "Zřícenina gotického hradu v lesích. Výlet s lehkým stoupáním a výhledy.",
+      "region": {
+        "kraj": "Jihocesky",
+        "okres": "Jindřichův Hradec",
+        "mesto": "Jindřichův Hradec"
+      },
+      "tags": {
+        "type": ["hrad", "les", "priroda"],
+        "ageMin": 6,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "sunny", "rain_ok"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["rotation", "compromise"],
+      "coordinates": { "lat": 49.0494, "lng": 15.2256 },
+      "url": "https://www.hrad-landstejn.eu"
+    },
+    {
+      "id": "jihocesky-slavonice",
+      "name": "Slavonice — historické náměstí",
+      "description": "Renesanční městečko s podzemím a klidnými uličkami. Vhodné pro procházku s dětmi.",
+      "region": {
+        "kraj": "Jihocesky",
+        "okres": "Jindřichův Hradec",
+        "mesto": "Jindřichův Hradec"
+      },
+      "tags": {
+        "type": ["mesto", "muzeum", "park"],
+        "ageMin": 4,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "rain_ok"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 49.1536, "lng": 15.3519 },
+      "url": "https://www.slavonice.cz"
+    },
+    {
+      "id": "jihocesky-trebon-rybniky",
+      "name": "Třeboňské rybníky a lázně",
+      "description": "Procházky kolem rybníků, park a lázeňská atmosféra. Klidný výlet do přírody.",
+      "region": { "kraj": "Jihocesky", "okres": "Jindřichův Hradec", "mesto": "Třeboň" },
+      "tags": {
+        "type": ["park", "priroda", "mesto"],
+        "ageMin": 2,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "sunny", "rain_ok"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 49.0036, "lng": 14.7662 },
+      "url": "https://www.trebon.cz"
+    },
+    {
+      "id": "jihocesky-trebon-lazne",
+      "name": "Lázně Aurora Třeboň",
+      "description": "Termální bazén a wellness. Ideální za horšího počasí nebo v zimě.",
+      "region": { "kraj": "Jihocesky", "okres": "Jindřichův Hradec", "mesto": "Třeboň" },
+      "tags": {
+        "type": ["bazen", "aquapark", "indoor"],
+        "ageMin": 2,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "rain_ok", "indoor_only"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["overlap", "rotation"],
+      "coordinates": { "lat": 49.0051, "lng": 14.7684 },
+      "url": "https://www.lazneaurora.cz"
+    },
+    {
+      "id": "jihocesky-zoo-hluboka",
+      "name": "ZOO Hluboká nad Vltavou",
+      "description": "Zoologická zahrada s africkou savanou a dětskými hřišti. Celodenní rodinný program.",
+      "region": { "kraj": "Jihocesky", "okres": "České Budějovice", "mesto": "České Budějovice" },
+      "tags": {
+        "type": ["zoo", "park", "priroda"],
+        "ageMin": 2,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "rain_ok"],
+        "duration": "full_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 49.0742, "lng": 14.4347 },
+      "url": "https://www.zoohluboka.cz"
+    },
+    {
+      "id": "jihocesky-zamek-hluboka",
+      "name": "Zámek Hluboká nad Vltavou",
+      "description": "Novogotický zámek s anglickým parkem. Prohlídky a procházky v okolí.",
+      "region": { "kraj": "Jihocesky", "okres": "České Budějovice", "mesto": "České Budějovice" },
+      "tags": {
+        "type": ["hrad", "park", "mesto"],
+        "ageMin": 5,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "rain_ok"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 49.0503, "lng": 14.4342 },
+      "url": "https://www.zamek-hluboka.cz"
+    },
+    {
+      "id": "jihocesky-ceske-budejovice-namesti",
+      "name": "České Budějovice — náměstí Přemysla Otakara II.",
+      "description": "Historické centrum, kašna Samson a samoobslužná prohlídka města.",
+      "region": { "kraj": "Jihocesky", "okres": "České Budějovice", "mesto": "České Budějovice" },
+      "tags": {
+        "type": ["mesto", "park"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "rain_ok"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 48.9745, "lng": 14.4747 },
+      "url": "https://www.c-budejovice.cz"
+    },
+    {
+      "id": "jihocesky-cesky-krumlov",
+      "name": "Český Krumlov — historické centrum",
+      "description": "UNESCO město s hradem a Vltavou. Celodenní výlet plný objevů.",
+      "region": { "kraj": "Jihocesky", "okres": "Český Krumlov", "mesto": "Český Krumlov" },
+      "tags": {
+        "type": ["mesto", "hrad", "priroda"],
+        "ageMin": 4,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "rain_ok"],
+        "duration": "full_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 48.8127, "lng": 14.3175 },
+      "url": "https://www.ckrumlov.info"
+    },
+    {
+      "id": "jihocesky-pisek-centrum",
+      "name": "Písek — historické centrum a Otava",
+      "description": "Procházka podél řeky, kamenný most a městské parky.",
+      "region": { "kraj": "Jihocesky", "okres": "Písek", "mesto": "Písek" },
+      "tags": {
+        "type": ["mesto", "park", "priroda"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "sunny", "rain_ok"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 49.3035, "lng": 14.1584 },
+      "url": "https://www.pisek.eu"
+    },
+    {
+      "id": "jihocesky-strakonice-hrad",
+      "name": "Hrad Strakonice",
+      "description": "Hrad s muzeem středověkých řemesel a výhledem na Otavu.",
+      "region": { "kraj": "Jihocesky", "okres": "Strakonice", "mesto": "Strakonice" },
+      "tags": {
+        "type": ["hrad", "muzeum", "mesto"],
+        "ageMin": 5,
+        "ageMax": 99,
+        "energyParent": ["medium"],
+        "weather": ["any", "rain_ok"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["overlap", "rotation"],
+      "coordinates": { "lat": 49.2614, "lng": 13.9024 },
+      "url": "https://www.hradstrakonice.cz"
+    },
+    {
+      "id": "jihocesky-lipno-nad-vltavou",
+      "name": "Lipno nad Vltavou",
+      "description": "Přehrada, stezky v korunách stromů a sportovní aktivity. Aktivní celodenní výlet.",
+      "region": { "kraj": "Jihocesky", "okres": "Český Krumlov", "mesto": "Český Krumlov" },
+      "tags": {
+        "type": ["sport", "priroda", "park"],
+        "ageMin": 5,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "sunny"],
+        "duration": "full_day"
+      },
+      "conflictResolvers": ["rotation", "compromise"],
+      "coordinates": { "lat": 48.6581, "lng": 14.2292 },
+      "url": "https://www.lipno.info"
+    },
+    {
+      "id": "jihocesky-prasilsko",
+      "name": "Prášilské jezero — Šumava",
+      "description": "Ledovcové jezero a lesní stezky. Klidná přírodní procházka.",
+      "region": { "kraj": "Jihocesky", "okres": "Prachatice", "mesto": "Prachatice" },
+      "tags": {
+        "type": ["priroda", "les", "park"],
+        "ageMin": 4,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "sunny", "rain_ok"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["compromise", "rotation"],
+      "coordinates": { "lat": 49.1917, "lng": 13.6103 },
+      "url": "https://www.npsumava.cz"
+    },
+    {
+      "id": "jihocesky-jindrichuv-hradec-koupaliste",
+      "name": "Aquacentrum Stadion Jindřichův Hradec",
+      "description": "Plavecký bazén s dětským brouzdalištěm. Vhodné za každého počasí.",
+      "region": {
+        "kraj": "Jihocesky",
+        "okres": "Jindřichův Hradec",
+        "mesto": "Jindřichův Hradec"
+      },
+      "tags": {
+        "type": ["bazen", "sport", "indoor"],
+        "ageMin": 2,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "rain_ok", "indoor_only"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["rotation", "overlap"],
+      "coordinates": { "lat": 49.1428, "lng": 15.0092 }
+    }
+  ]
+}

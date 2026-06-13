@@ -12,6 +12,7 @@ export const SESSION_KEY = "kam-s-detmi-check-in";
 export const KRAJE: { value: Kraj; label: string }[] = [
   { value: "Praha", label: "Praha" },
   { value: "Stredocesky", label: "Střední Čechy" },
+  { value: "Jihocesky", label: "Jihočeský kraj" },
 ];
 
 export const MESTA: Record<Kraj, string[]> = {
@@ -25,6 +26,15 @@ export const MESTA: Record<Kraj, string[]> = {
     "Mělník",
     "Příbram",
   ],
+  Jihocesky: [
+    "Jindřichův Hradec",
+    "České Budějovice",
+    "Český Krumlov",
+    "Třeboň",
+    "Písek",
+    "Strakonice",
+    "Prachatice",
+  ],
 };
 
 export const CITY_COORDS: Record<string, { lat: number; lng: number }> = {
@@ -36,6 +46,13 @@ export const CITY_COORDS: Record<string, { lat: number; lng: number }> = {
   Kolín: { lat: 50.0274, lng: 15.2009 },
   Mělník: { lat: 50.3505, lng: 14.4743 },
   Příbram: { lat: 49.6899, lng: 14.0104 },
+  "Jindřichův Hradec": { lat: 49.1445, lng: 15.0028 },
+  "České Budějovice": { lat: 48.9745, lng: 14.4747 },
+  "Český Krumlov": { lat: 48.8127, lng: 14.3175 },
+  Třeboň: { lat: 49.0036, lng: 14.7662 },
+  Písek: { lat: 49.3035, lng: 14.1584 },
+  Strakonice: { lat: 49.2614, lng: 13.9024 },
+  Prachatice: { lat: 49.0129, lng: 14.0000 },
 };
 
 export const ACTIVITY_OPTIONS: { value: ActivityType; label: string; emoji: string }[] = [

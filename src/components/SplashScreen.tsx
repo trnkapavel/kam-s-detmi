@@ -43,7 +43,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
 
           <div className="animate-in-up space-y-5 pb-5">
             <div className="space-y-3">
-              <p className="splash-eyebrow">{hero.label} · Praha &amp; Střední Čechy</p>
+              <p className="splash-eyebrow">{hero.label} · Praha · Střední Čechy · Jihočeský</p>
               <h1 className="splash-title">
                 Kam dnes
                 <br />

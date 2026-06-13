@@ -74,9 +74,16 @@ export const SPLASH_HERO_POOL: SplashHero[] = [
   },
   {
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Prague_Old_Town_Square%2C_Czech_Republic_-_Oct_2010.jpg/1280px-Prague_Old_Town_Square%2C_Czech_Republic_-_Oct_2010.jpg",
-    alt: "Staroměstské náměstí, Praha",
-    label: "Staroměstské náměstí",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Cervena_Lhota_%28z%C3%A1mek%29.jpg/1280px-Cervena_Lhota_%28z%C3%A1mek%29.jpg",
+    alt: "Zámek Červená Lhota",
+    label: "Červená Lhota",
+    objectPosition: "center 45%",
+  },
+  {
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Cesky_Krumlov_%28Czech_Republic%29.jpg/1280px-Cesky_Krumlov_%28Czech_Republic%29.jpg",
+    alt: "Český Krumlov, historické centrum",
+    label: "Český Krumlov",
     objectPosition: "center 40%",
   },
 ];
