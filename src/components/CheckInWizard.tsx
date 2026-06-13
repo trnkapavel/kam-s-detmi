@@ -8,6 +8,7 @@ import {
   parseAllChildren,
   type ChildDraft,
 } from "@/components/check-in/ChildrenStep";
+import type { IntentType } from "@/lib/intents";
 import { WeatherStep } from "@/components/check-in/WeatherStep";
 import { AnimatedStep } from "@/components/ui/AnimatedStep";
 import { Button } from "@/components/ui/Button";
@@ -61,6 +62,7 @@ export function CheckInWizard() {
   const [energy, setEnergy] = useState<ParentEnergy | null>(null);
   const [timeAvailable, setTimeAvailable] = useState<TimeAvailable | null>(null);
   const [children, setChildren] = useState<ChildDraft[]>([emptyChild(), emptyChild()]);
+  const [familyIntents, setFamilyIntents] = useState<IntentType[]>([]);
   const [weatherAuto, setWeatherAuto] = useState(true);
   const [weatherCondition, setWeatherCondition] = useState<WeatherCondition>("cloudy");
   const [weatherTemp, setWeatherTemp] = useState(15);
@@ -79,7 +81,7 @@ export function CheckInWizard() {
     setMesto(MESTA[nextKraj][0]);
   }
 
-  const parsedChildren = parseAllChildren(children);
+  const parsedChildren = parseAllChildren(children, familyIntents);
   const allChildrenValid = parsedChildren !== null;
   const sharedWants = parsedChildren ? childrenShareWants(parsedChildren) : false;
 
@@ -230,6 +232,8 @@ export function CheckInWizard() {
             {step === 2 && (
               <ChildrenStep
                 children={children}
+                familyIntents={familyIntents}
+                onFamilyIntentsChange={setFamilyIntents}
                 onChildrenChange={setChildren}
                 showAgreement={children.length > 1 && sharedWants}
               />

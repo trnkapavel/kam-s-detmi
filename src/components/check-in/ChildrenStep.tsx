@@ -1,49 +1,61 @@
 "use client";
 
-import { useState } from "react";
 import { OptionButton } from "@/components/ui/OptionButton";
 import { AgeStepper } from "@/components/ui/AgeStepper";
 import { NumberStepper } from "@/components/ui/NumberStepper";
-import { GlassCard } from "@/components/ui/GlassCard";
+import { IntentPicker } from "@/components/ui/IntentPicker";
+import { ChildCard } from "@/components/check-in/ChildCard";
+import { MAX_CHILDREN, MIN_CHILDREN, MOOD_OPTIONS } from "@/lib/constants";
 import {
-  ACTIVITY_OPTIONS,
-  MAX_CHILDREN,
-  MIN_CHILDREN,
-  MOOD_OPTIONS,
-} from "@/lib/constants";
-import { maxWantsForChildCount } from "@/lib/children";
-import { ACTIVITY_ICONS, MOOD_ICONS, Icon, PartyPopper } from "@/lib/icons";
+  intentsToWants,
+  MAX_CUSTOM_INTENTS,
+  MAX_FAMILY_INTENTS,
+  MAX_SINGLE_CHILD_INTENTS,
+  type IntentType,
+} from "@/lib/intents";
+import { MOOD_ICONS, Icon, PartyPopper } from "@/lib/icons";
 import type { ActivityType, ChildInput, ChildMood } from "@/types";
 
 export type ChildDraft = {
   age: number;
-  wants: ActivityType[];
   mood: ChildMood | null;
+  wantsDifferent: boolean;
+  customIntents: IntentType[];
+  soloIntents: IntentType[];
 };
 
 export const emptyChild = (age = 5): ChildDraft => ({
   age,
-  wants: [],
   mood: null,
+  wantsDifferent: false,
+  customIntents: [],
+  soloIntents: [],
 });
 
 type ChildrenStepProps = {
   children: ChildDraft[];
+  familyIntents: IntentType[];
+  onFamilyIntentsChange: (intents: IntentType[]) => void;
   onChildrenChange: (children: ChildDraft[]) => void;
   showAgreement: boolean;
 };
 
-export function ChildrenStep({ children, onChildrenChange, showAgreement }: ChildrenStepProps) {
-  const [showAllActivities, setShowAllActivities] = useState<Record<number, boolean>>({});
+export function ChildrenStep({
+  children,
+  familyIntents,
+  onFamilyIntentsChange,
+  onChildrenChange,
+  showAgreement,
+}: ChildrenStepProps) {
   const childCount = children.length;
-  const maxWants = maxWantsForChildCount(childCount);
-  const featuredCount = 6;
-  const featuredOptions = ACTIVITY_OPTIONS.slice(0, featuredCount);
-  const hasMoreOptions = ACTIVITY_OPTIONS.length > featuredCount;
+  const isSolo = childCount === 1;
 
   function setChildCount(count: number) {
     if (count > children.length) {
-      onChildrenChange([...children, ...Array.from({ length: count - children.length }, () => emptyChild())]);
+      onChildrenChange([
+        ...children,
+        ...Array.from({ length: count - children.length }, () => emptyChild()),
+      ]);
       return;
     }
     onChildrenChange(children.slice(0, count));
@@ -53,21 +65,24 @@ export function ChildrenStep({ children, onChildrenChange, showAgreement }: Chil
     onChildrenChange(children.map((child, i) => (i === index ? next : child)));
   }
 
-  function toggleWant(index: number, want: ActivityType) {
-    const child = children[index];
-    const has = child.wants.includes(want);
-    if (has) {
-      updateChild(index, { ...child, wants: child.wants.filter((item) => item !== want) });
-      return;
-    }
-    if (child.wants.length >= maxWants) {
-      return;
-    }
-    updateChild(index, { ...child, wants: [...child.wants, want] });
-  }
-
-  function activityOptionsFor(index: number) {
-    return showAllActivities[index] ? ACTIVITY_OPTIONS : featuredOptions;
+  function renderMoodPicker(child: ChildDraft, index: number) {
+    return (
+      <div>
+        <p className="mb-3 text-[15px] font-medium text-slate">Nálada</p>
+        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+          {MOOD_OPTIONS.map((option) => (
+            <OptionButton
+              key={option.value}
+              selected={child.mood === option.value}
+              onClick={() => updateChild(index, { ...child, mood: option.value })}
+              icon={<Icon icon={MOOD_ICONS[option.value]} size={18} />}
+            >
+              {option.label}
+            </OptionButton>
+          ))}
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -81,61 +96,77 @@ export function ChildrenStep({ children, onChildrenChange, showAgreement }: Chil
         suffix={childCount === 1 ? "dítě" : childCount < 5 ? "děti" : "dětí"}
       />
 
-      {children.map((child, index) => (
-        <GlassCard key={index} className="space-y-5 bg-surface/50 p-4" variant="tint">
-          <h3 className="text-base font-bold text-ink">
-            {childCount === 1 ? "Dítě" : `Dítě ${index + 1}`}
-          </h3>
-
+      {isSolo ? (
+        <ChildCard index={0} total={1} age={children[0].age} mood={children[0].mood}>
           <AgeStepper
-            value={child.age}
-            onChange={(age) => updateChild(index, { ...child, age })}
+            value={children[0].age}
+            onChange={(age) => updateChild(0, { ...children[0], age })}
+          />
+          <IntentPicker
+            label="Co dnes táhne?"
+            hint="Vyber max 2 směry — tipy dopočítáme za tebe."
+            intents={children[0].soloIntents}
+            max={MAX_SINGLE_CHILD_INTENTS}
+            onChange={(soloIntents) => updateChild(0, { ...children[0], soloIntents })}
+          />
+          {renderMoodPicker(children[0], 0)}
+        </ChildCard>
+      ) : (
+        <>
+          <IntentPicker
+            label="Co dnes táhne celou rodinu?"
+            hint="Společný směr pro všechny — max 2 volby."
+            intents={familyIntents}
+            max={MAX_FAMILY_INTENTS}
+            onChange={onFamilyIntentsChange}
           />
 
-          <div>
-            <p className="mb-3 text-[15px] font-medium text-slate">
-              Co dnes chce? (max {maxWants})
-            </p>
-            <div className="grid grid-cols-2 gap-2.5">
-              {activityOptionsFor(index).map((option) => (
-                <OptionButton
-                  key={option.value}
-                  selected={child.wants.includes(option.value)}
-                  onClick={() => toggleWant(index, option.value)}
-                  icon={<Icon icon={ACTIVITY_ICONS[option.value]} size={18} />}
-                >
-                  {option.label}
-                </OptionButton>
-              ))}
-            </div>
-            {hasMoreOptions && !showAllActivities[index] && (
-              <button
-                type="button"
-                onClick={() => setShowAllActivities((current) => ({ ...current, [index]: true }))}
-                className="mt-3 text-sm font-semibold text-link hover:underline"
-              >
-                Zobrazit všechny možnosti
-              </button>
-            )}
-          </div>
+          <p className="text-[15px] font-medium text-slate">Teď vyplň jednotlivé děti</p>
 
-          <div>
-            <p className="mb-3 text-[15px] font-medium text-slate">Nálada</p>
-            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
-              {MOOD_OPTIONS.map((option) => (
+          {children.map((child, index) => (
+            <ChildCard
+              key={index}
+              index={index}
+              total={childCount}
+              age={child.age}
+              mood={child.mood}
+            >
+              <AgeStepper
+                value={child.age}
+                onChange={(age) => updateChild(index, { ...child, age })}
+              />
+
+              <div className="border-t border-hairline/70 pt-4">
                 <OptionButton
-                  key={option.value}
-                  selected={child.mood === option.value}
-                  onClick={() => updateChild(index, { ...child, mood: option.value })}
-                  icon={<Icon icon={MOOD_ICONS[option.value]} size={18} />}
+                  selected={child.wantsDifferent}
+                  onClick={() =>
+                    updateChild(index, {
+                      ...child,
+                      wantsDifferent: !child.wantsDifferent,
+                      customIntents: child.wantsDifferent ? [] : child.customIntents,
+                    })
+                  }
+                  className="w-full"
                 >
-                  {option.label}
+                  Chce něco jiného než rodina
                 </OptionButton>
-              ))}
-            </div>
-          </div>
-        </GlassCard>
-      ))}
+              </div>
+
+              {child.wantsDifferent && (
+                <IntentPicker
+                  label="Jiný směr"
+                  hint="Jedna volba, která přebije rodinný výběr."
+                  intents={child.customIntents}
+                  max={MAX_CUSTOM_INTENTS}
+                  onChange={(customIntents) => updateChild(index, { ...child, customIntents })}
+                />
+              )}
+
+              {renderMoodPicker(child, index)}
+            </ChildCard>
+          ))}
+        </>
+      )}
 
       {showAgreement && (
         <div className="flex items-center gap-2.5 rounded-xl bg-card-mint px-4 py-3.5 text-base font-semibold text-brand-green glass-tint animate-scale-in">
@@ -147,15 +178,38 @@ export function ChildrenStep({ children, onChildrenChange, showAgreement }: Chil
   );
 }
 
-export function parseChildDraft(draft: ChildDraft): ChildInput | null {
-  if (draft.age < 1 || draft.age > 17 || draft.wants.length === 0 || !draft.mood) {
-    return null;
+function resolveChildWants(
+  draft: ChildDraft,
+  familyIntents: IntentType[],
+  isSolo: boolean,
+): ActivityType[] {
+  if (isSolo) {
+    return intentsToWants(draft.soloIntents);
   }
-  return { age: draft.age, wants: draft.wants, mood: draft.mood };
+  if (draft.wantsDifferent && draft.customIntents.length > 0) {
+    return intentsToWants(draft.customIntents);
+  }
+  return intentsToWants(familyIntents);
 }
 
-export function parseAllChildren(drafts: ChildDraft[]): ChildInput[] | null {
-  const parsed = drafts.map(parseChildDraft);
+export function parseChildDraft(
+  draft: ChildDraft,
+  familyIntents: IntentType[],
+  isSolo: boolean,
+): ChildInput | null {
+  const wants = resolveChildWants(draft, familyIntents, isSolo);
+  if (draft.age < 1 || draft.age > 17 || wants.length === 0 || !draft.mood) {
+    return null;
+  }
+  return { age: draft.age, wants, mood: draft.mood };
+}
+
+export function parseAllChildren(
+  drafts: ChildDraft[],
+  familyIntents: IntentType[],
+): ChildInput[] | null {
+  const isSolo = drafts.length === 1;
+  const parsed = drafts.map((draft) => parseChildDraft(draft, familyIntents, isSolo));
   if (parsed.some((child) => child === null)) {
     return null;
   }

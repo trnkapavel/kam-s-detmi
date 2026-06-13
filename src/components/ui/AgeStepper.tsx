@@ -17,7 +17,7 @@ export function AgeStepper({ value, onChange }: AgeStepperProps) {
         label="Věk"
         suffix="let"
       />
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 pb-1">
         {QUICK_AGE_CHIPS.map((age) => (
           <button
             key={age}

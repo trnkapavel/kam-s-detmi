@@ -6,6 +6,7 @@ import type {
   WeatherCondition,
 } from "@/types";
 import { ACTIVITY_OPTIONS, ENERGY_OPTIONS, WEATHER_OPTIONS } from "./constants";
+import { wantsToIntentSummary } from "./intents";
 
 export function activityLabel(type: ActivityType): string {
   return ACTIVITY_OPTIONS.find((option) => option.value === type)?.label ?? type;
@@ -38,5 +39,5 @@ export function moodLabel(mood: ChildMood): string {
 }
 
 export function wantsSummary(wants: ActivityType[]): string {
-  return wants.map(activityLabel).join(", ");
+  return wantsToIntentSummary(wants);
 }
