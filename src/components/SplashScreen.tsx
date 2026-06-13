@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { markSplashSeen } from "@/lib/splash-session";
-import { SPLASH_CHIPS, SPLASH_HERO_ALT, SPLASH_HERO_IMAGE } from "@/lib/splash-content";
+import { pickSplashHero, SPLASH_CHIPS } from "@/lib/splash-content";
 import { ArrowRight, Sparkles } from "@/lib/icons";
 
 type SplashScreenProps = {
@@ -10,6 +11,8 @@ type SplashScreenProps = {
 };
 
 export function SplashScreen({ onStart }: SplashScreenProps) {
+  const [hero] = useState(() => pickSplashHero());
+
   function handleStart() {
     markSplashSeen();
     onStart();
@@ -19,11 +22,12 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
     <div className="fixed inset-0 z-30 mx-auto max-w-lg overflow-hidden bg-ink">
       <div className="relative h-dvh w-full">
         <Image
-          src={SPLASH_HERO_IMAGE}
-          alt={SPLASH_HERO_ALT}
+          src={hero.image}
+          alt={hero.alt}
           fill
           priority
-          className="splash-hero-image object-cover object-[center_42%]"
+          className="splash-hero-image object-cover"
+          style={{ objectPosition: hero.objectPosition ?? "center" }}
           sizes="(max-width: 512px) 100vw, 512px"
         />
 
@@ -39,7 +43,7 @@ export function SplashScreen({ onStart }: SplashScreenProps) {
 
           <div className="animate-in-up space-y-5 pb-5">
             <div className="space-y-3">
-              <p className="splash-eyebrow">Praha &amp; Střední Čechy</p>
+              <p className="splash-eyebrow">{hero.label} · Praha &amp; Střední Čechy</p>
               <h1 className="splash-title">
                 Kam dnes
                 <br />

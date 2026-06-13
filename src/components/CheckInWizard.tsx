@@ -39,6 +39,7 @@ import {
   CloudSun,
 } from "@/lib/icons";
 import { saveCheckIn } from "@/lib/check-in-session";
+import { getProceedHint } from "@/lib/wizard-hints";
 import type {
   CheckIn,
   Kraj,
@@ -126,6 +127,14 @@ export function CheckInWizard() {
   }
 
   const StepIcon = STEP_META[step]?.icon ?? Compass;
+  const proceedHint = getProceedHint({
+    step,
+    energy,
+    timeAvailable,
+    children,
+    familyIntents,
+    weatherReady,
+  });
 
   return (
     <div className="mx-auto flex min-h-screen max-w-lg flex-col">
@@ -262,6 +271,15 @@ export function CheckInWizard() {
       </div>
 
       <div className="glass-footer sticky bottom-0 px-4 pb-safe pt-4">
+        {!canProceed() && proceedHint && (
+          <p
+            className="mb-3 rounded-lg bg-card-peach px-3 py-2.5 text-center text-[15px] font-medium leading-snug text-brand-orange glass-tint"
+            role="status"
+            aria-live="polite"
+          >
+            {proceedHint}
+          </p>
+        )}
         <div className="flex gap-3">
           {step > 0 && (
             <Button
