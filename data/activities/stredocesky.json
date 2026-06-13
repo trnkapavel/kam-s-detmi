@@ -1,0 +1,260 @@
+{
+  "meta": {
+    "kraj": "Stredocesky",
+    "version": "1.0",
+    "updated": "2026-06-13",
+    "count": 15
+  },
+  "activities": [
+    {
+      "id": "stredocesky-karlstejn",
+      "name": "Hrad Karlštejn",
+      "description": "Středověký hrad s prohlídkami. Celodenní výlet do historie.",
+      "region": { "kraj": "Stredocesky", "okres": "Beroun", "mesto": "Beroun" },
+      "tags": {
+        "type": ["hrad", "mesto", "priroda"],
+        "ageMin": 5,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "rain_ok"],
+        "duration": "full_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 49.9394, "lng": 14.1883 },
+      "url": "https://www.hrad-karlstejn.cz"
+    },
+    {
+      "id": "stredocesky-kladno-koupaliste",
+      "name": "Koupaliště Kladno",
+      "description": "Venkovní koupaliště s bazénem a tobogány. Oblíbené za hezkého počasí.",
+      "region": { "kraj": "Stredocesky", "okres": "Kladno", "mesto": "Kladno" },
+      "tags": {
+        "type": ["koupaliste", "bazen", "sport"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["medium"],
+        "weather": ["any", "sunny"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["rotation", "compromise"],
+      "coordinates": { "lat": 50.1417, "lng": 14.1036 },
+      "url": "https://www.koupalistekladno.cz"
+    },
+    {
+      "id": "stredocesky-skoda-museum",
+      "name": "Škoda Muzeum Mladá Boleslav",
+      "description": "Muzeum automobilů s interaktivními expozicemi. Indoor aktivita pro deště.",
+      "region": { "kraj": "Stredocesky", "okres": "Mladá Boleslav", "mesto": "Mladá Boleslav" },
+      "tags": {
+        "type": ["muzeum", "indoor"],
+        "ageMin": 5,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["indoor_only", "any"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 50.4122, "lng": 14.9036 },
+      "url": "https://museum.skoda-auto.cz"
+    },
+    {
+      "id": "stredocesky-konopiste",
+      "name": "Zámek Konopiště",
+      "description": "Zámek s rozsáhlým parkem a labyrintem. Kombinace hradu a přírody.",
+      "region": { "kraj": "Stredocesky", "okres": "Benešov", "mesto": "Benešov" },
+      "tags": {
+        "type": ["hrad", "park", "priroda"],
+        "ageMin": 4,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "rain_ok"],
+        "duration": "full_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 49.7786, "lng": 14.6561 },
+      "url": "https://www.zamek-konopiste.cz"
+    },
+    {
+      "id": "stredocesky-brdy",
+      "name": "Brdy — Příbramská vrchovina",
+      "description": "Lesní procházky a naučné stezky v brdských lesích.",
+      "region": { "kraj": "Stredocesky", "okres": "Příbram", "mesto": "Příbram" },
+      "tags": {
+        "type": ["les", "priroda", "park"],
+        "ageMin": 4,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "sunny"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["rotation", "sequential"],
+      "coordinates": { "lat": 49.6899, "lng": 14.0104 }
+    },
+    {
+      "id": "stredocesky-kokorinsko",
+      "name": "Kokořínsko",
+      "description": "Skalní město, hrad Kokořín a lesní stezky. Výlet do přírody na sever od Prahy.",
+      "region": { "kraj": "Stredocesky", "okres": "Mělník", "mesto": "Mělník" },
+      "tags": {
+        "type": ["les", "hrad", "priroda"],
+        "ageMin": 5,
+        "ageMax": 99,
+        "energyParent": ["high"],
+        "weather": ["any", "sunny"],
+        "duration": "full_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 50.4417, "lng": 14.5583 },
+      "url": "https://www.hrad-kokorin.cz"
+    },
+    {
+      "id": "stredocesky-krivoklat",
+      "name": "Hrad Křivoklát",
+      "description": "Gotický hrad v lesích. Celodenní výlet s prohlídkou.",
+      "region": { "kraj": "Stredocesky", "okres": "Beroun", "mesto": "Beroun" },
+      "tags": {
+        "type": ["hrad", "les", "mesto"],
+        "ageMin": 5,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "rain_ok"],
+        "duration": "full_day"
+      },
+      "conflictResolvers": ["overlap", "rotation"],
+      "coordinates": { "lat": 50.0372, "lng": 13.8722 },
+      "url": "https://www.hrad-krivoklat.cz"
+    },
+    {
+      "id": "stredocesky-svatý-jan",
+      "name": "Svatý Jan pod Skalou",
+      "description": "Skalní údolí a klášter. Krásná procházka přírodou pro celou rodinu.",
+      "region": { "kraj": "Stredocesky", "okres": "Beroun", "mesto": "Beroun" },
+      "tags": {
+        "type": ["priroda", "les", "park"],
+        "ageMin": 4,
+        "ageMax": 99,
+        "energyParent": ["medium"],
+        "weather": ["any", "sunny", "rain_ok"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["compromise", "overlap"],
+      "coordinates": { "lat": 49.9667, "lng": 14.1333 }
+    },
+    {
+      "id": "stredocesky-melnik-zamek",
+      "name": "Zámek Mělník",
+      "description": "Zámek nad soutokem Labe a Vltavy s vinařskou tradicí a výhledy.",
+      "region": { "kraj": "Stredocesky", "okres": "Mělník", "mesto": "Mělník" },
+      "tags": {
+        "type": ["hrad", "mesto"],
+        "ageMin": 5,
+        "ageMax": 99,
+        "energyParent": ["medium"],
+        "weather": ["any", "rain_ok"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 50.3505, "lng": 14.4743 },
+      "url": "https://www.zamek-melnik.cz"
+    },
+    {
+      "id": "stredocesky-kolin-namesti",
+      "name": "Kolínské historické náměstí",
+      "description": "Procházka centrem s kostelem sv. Bartoloměje. Krátký výlet do města.",
+      "region": { "kraj": "Stredocesky", "okres": "Kolín", "mesto": "Kolín" },
+      "tags": {
+        "type": ["mesto", "park"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "rain_ok"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["compromise", "overlap"],
+      "coordinates": { "lat": 50.0274, "lng": 15.2009 }
+    },
+    {
+      "id": "stredocesky-lidice",
+      "name": "Památník Lidice",
+      "description": "Venkovní areál s muzeem. Vhodné pro starší děti, v dešti kryté expozice.",
+      "region": { "kraj": "Stredocesky", "okres": "Kladno", "mesto": "Kladno" },
+      "tags": {
+        "type": ["muzeum", "park", "mesto"],
+        "ageMin": 8,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "rain_ok"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["compromise", "rotation"],
+      "coordinates": { "lat": 50.1439, "lng": 14.1972 },
+      "url": "https://www.lidice-memorial.cz"
+    },
+    {
+      "id": "stredocesky-sternberk",
+      "name": "Hrad Český Šternberk",
+      "description": "Gotický hrad nad Sázavou s prohlídkami. Výlet do historie.",
+      "region": { "kraj": "Stredocesky", "okres": "Benešov", "mesto": "Benešov" },
+      "tags": {
+        "type": ["hrad", "mesto"],
+        "ageMin": 5,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "rain_ok"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["overlap", "rotation"],
+      "coordinates": { "lat": 49.8139, "lng": 14.9231 },
+      "url": "https://www.sternberk.com"
+    },
+    {
+      "id": "stredocesky-svata-hora",
+      "name": "Svatá Hora Příbram",
+      "description": "Poutní místo s procházkou a výhledem. Klidnější venkovní aktivita.",
+      "region": { "kraj": "Stredocesky", "okres": "Příbram", "mesto": "Příbram" },
+      "tags": {
+        "type": ["park", "priroda", "mesto"],
+        "ageMin": 4,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "sunny", "rain_ok"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["compromise", "overlap"],
+      "coordinates": { "lat": 49.685, "lng": 14.0122 },
+      "url": "https://www.svata-hora.cz"
+    },
+    {
+      "id": "stredocesky-beroun-koupaliste",
+      "name": "Koupaliště Jilmový vrch Beroun",
+      "description": "Venkovní bazén s tobogány v Berouně. Ideální za slunečna.",
+      "region": { "kraj": "Stredocesky", "okres": "Beroun", "mesto": "Beroun" },
+      "tags": {
+        "type": ["koupaliste", "bazen", "sport"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["medium"],
+        "weather": ["any", "sunny"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["rotation", "compromise"],
+      "coordinates": { "lat": 49.9522, "lng": 14.0722 }
+    },
+    {
+      "id": "stredocesky-boleslav-park",
+      "name": "Park Michálkovický Mladá Boleslav",
+      "description": "Městský park s dětským hřištěm a procházkami. Lehký half-day výlet.",
+      "region": { "kraj": "Stredocesky", "okres": "Mladá Boleslav", "mesto": "Mladá Boleslav" },
+      "tags": {
+        "type": ["park", "mesto"],
+        "ageMin": 2,
+        "ageMax": 12,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "sunny", "rain_ok"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 50.4114, "lng": 14.9032 }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "kraj": "Praha",
+    "version": "1.0",
+    "updated": "2026-06-13",
+    "count": 3
+  },
+  "activities": [
+    {
+      "id": "praha-zoo",
+      "name": "Zoologická zahrada Praha",
+      "description": "Celodenní výlet s exponáty pro všechny věkové kategorie. V dešti kryté pavilony.",
+      "region": {
+        "kraj": "Praha",
+        "okres": "Praha",
+        "mesto": "Praha"
+      },
+      "tags": {
+        "type": ["zoo", "park", "priroda"],
+        "ageMin": 2,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "rain_ok"],
+        "duration": "full_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 50.1165, "lng": 14.4063 },
+      "url": "https://www.zoopraha.cz"
+    },
+    {
+      "id": "praha-aquapalace",
+      "name": "Aquapalace Praha",
+      "description": "Aquapark s tobogány pro starší děti a dětským bazénem. Vnitřní i venkovní část.",
+      "region": {
+        "kraj": "Praha",
+        "okres": "Praha",
+        "mesto": "Praha"
+      },
+      "tags": {
+        "type": ["aquapark", "bazen", "indoor"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["indoor_only", "any"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 49.9903, "lng": 14.5958 },
+      "url": "https://www.aquapalace.cz"
+    },
+    {
+      "id": "praha-stromovka",
+      "name": "Park Stromovka",
+      "description": "Velký městský park s dětskými hřišti, rybníky a fontánami. Vhodný kompromis mezi vodou a přírodou.",
+      "region": {
+        "kraj": "Praha",
+        "okres": "Praha",
+        "mesto": "Praha"
+      },
+      "tags": {
+        "type": ["park", "priroda", "les"],
+        "ageMin": 1,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "sunny", "rain_ok"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["compromise", "overlap"],
+      "coordinates": { "lat": 50.1069, "lng": 14.4194 },
+      "url": "https://www.stromovka.cz"
+    }
+  ]
+}

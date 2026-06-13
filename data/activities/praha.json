@@ -1,0 +1,301 @@
+{
+  "meta": {
+    "kraj": "Praha",
+    "version": "1.0",
+    "updated": "2026-06-13",
+    "count": 16
+  },
+  "activities": [
+    {
+      "id": "praha-zoo",
+      "name": "Zoologická zahrada Praha",
+      "description": "Celodenní výlet s exponáty pro všechny věkové kategorie. V dešti kryté pavilony.",
+      "region": {
+        "kraj": "Praha",
+        "okres": "Praha",
+        "mesto": "Praha"
+      },
+      "tags": {
+        "type": ["zoo", "park", "priroda"],
+        "ageMin": 2,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "rain_ok"],
+        "duration": "full_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 50.1165, "lng": 14.4063 },
+      "url": "https://www.zoopraha.cz"
+    },
+    {
+      "id": "praha-aquapalace",
+      "name": "Aquapalace Praha",
+      "description": "Aquapark s tobogány pro starší děti a dětským bazénem. Vnitřní i venkovní část.",
+      "region": {
+        "kraj": "Praha",
+        "okres": "Praha",
+        "mesto": "Praha"
+      },
+      "tags": {
+        "type": ["aquapark", "bazen", "indoor"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["indoor_only", "any"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 49.9903, "lng": 14.5958 },
+      "url": "https://www.aquapalace.cz"
+    },
+    {
+      "id": "praha-stromovka",
+      "name": "Park Stromovka",
+      "description": "Velký městský park s dětskými hřišti, rybníky a fontánami. Vhodný kompromis mezi vodou a přírodou.",
+      "region": {
+        "kraj": "Praha",
+        "okres": "Praha",
+        "mesto": "Praha"
+      },
+      "tags": {
+        "type": ["park", "priroda", "les"],
+        "ageMin": 1,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "sunny", "rain_ok"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["compromise", "overlap"],
+      "coordinates": { "lat": 50.1069, "lng": 14.4194 },
+      "url": "https://www.stromovka.cz"
+    },
+    {
+      "id": "praha-podoli-bazen",
+      "name": "Plavecký stadion Podolí",
+      "description": "Krytý plavecký bazén vhodný pro deštivé dny. Klidnější varianta než aquapark.",
+      "region": {
+        "kraj": "Praha",
+        "okres": "Praha",
+        "mesto": "Praha"
+      },
+      "tags": {
+        "type": ["bazen", "indoor", "sport"],
+        "ageMin": 4,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["indoor_only", "any"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["rotation", "compromise"],
+      "coordinates": { "lat": 50.0622, "lng": 14.4167 },
+      "url": "https://www.plaveckystadion.cz"
+    },
+    {
+      "id": "praha-hostivarska-prehrada",
+      "name": "Hostivařská přehrada",
+      "description": "Přírodní koupání a procházky v lese kolem přehrady. Spojuje vodu a přírodu.",
+      "region": {
+        "kraj": "Praha",
+        "okres": "Praha",
+        "mesto": "Praha"
+      },
+      "tags": {
+        "type": ["koupaliste", "bazen", "priroda", "les", "park"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "sunny"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 50.031, "lng": 14.533 }
+    },
+    {
+      "id": "praha-kunraticky-les",
+      "name": "Kunratický les",
+      "description": "Lesní procházka s naučnou stezkou. Venkovní aktivita — v dešti spíše ne.",
+      "region": {
+        "kraj": "Praha",
+        "okres": "Praha",
+        "mesto": "Praha"
+      },
+      "tags": {
+        "type": ["les", "priroda", "park"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "sunny"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["rotation", "sequential"],
+      "coordinates": { "lat": 50.0219, "lng": 14.4608 }
+    },
+    {
+      "id": "praha-ntm",
+      "name": "Národní technické muzeum",
+      "description": "Interaktivní expozice vhodné pro deštivé dny. Větší děti ocení vědu a techniku.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["muzeum", "indoor"],
+        "ageMin": 5,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["indoor_only", "any"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 50.0879, "lng": 14.4214 },
+      "url": "https://www.ntm.cz"
+    },
+    {
+      "id": "praha-divoka-sarka",
+      "name": "Divoká Šárka",
+      "description": "Přírodní rezervace s procházkami a skalami. Venkovní aktivita pro aktivní děti.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["priroda", "les", "park"],
+        "ageMin": 4,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "sunny"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["compromise", "rotation"],
+      "coordinates": { "lat": 50.0938, "lng": 14.3453 }
+    },
+    {
+      "id": "praha-petrin",
+      "name": "Petřín",
+      "description": "Procházka parkem, rozhledna a lanovka. Kombinace města a zeleně.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["park", "mesto", "priroda"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "sunny", "rain_ok"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["compromise", "overlap"],
+      "coordinates": { "lat": 50.0835, "lng": 14.3954 },
+      "url": "https://www.petrinske-rozhledny.cz"
+    },
+    {
+      "id": "praha-hradcany",
+      "name": "Pražský hrad a Hradčany",
+      "description": "Procházka hradem a okolními uličkami. Historie a výhledy pro celou rodinu.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["hrad", "mesto"],
+        "ageMin": 5,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "rain_ok"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 50.091, "lng": 14.4016 },
+      "url": "https://www.hrad.cz"
+    },
+    {
+      "id": "praha-motol-koupaliste",
+      "name": "Koupaliště Motol",
+      "description": "Venkovní koupaliště s tobogány a dětským bazénem. Ideální za slunečna.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["koupaliste", "bazen"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["medium"],
+        "weather": ["any", "sunny"],
+        "duration": "half_day"
+      },
+      "conflictResolvers": ["rotation", "compromise"],
+      "coordinates": { "lat": 50.0667, "lng": 14.35 },
+      "url": "https://www.koupalistemotol.cz"
+    },
+    {
+      "id": "praha-jumppark-jarov",
+      "name": "JumpPark Jarov",
+      "description": "Trampolínový park — indoor sportovní zábava pro deštivé dny.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["sport", "indoor"],
+        "ageMin": 4,
+        "ageMax": 16,
+        "energyParent": ["medium", "high"],
+        "weather": ["indoor_only", "any"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["compromise", "rotation"],
+      "coordinates": { "lat": 50.0697, "lng": 14.4989 },
+      "url": "https://www.jumppark.cz"
+    },
+    {
+      "id": "praha-planetarium",
+      "name": "Planetárium Praha",
+      "description": "Kulturní program a hvězdárna vhodná pro deštivé odpoledne.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["muzeum", "indoor"],
+        "ageMin": 5,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["indoor_only", "any"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["overlap", "compromise"],
+      "coordinates": { "lat": 50.0797, "lng": 14.4198 },
+      "url": "https://www.planetarium.cz"
+    },
+    {
+      "id": "praha-botanicka-zahrada",
+      "name": "Botanická zahrada Troja",
+      "description": "Skleníky Fata Morgana a venkovní expozice. V dešti kryté části.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["park", "priroda", "muzeum"],
+        "ageMin": 2,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "rain_ok"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["compromise", "overlap"],
+      "coordinates": { "lat": 50.1167, "lng": 14.4125 },
+      "url": "https://www.botanicka.cz"
+    },
+    {
+      "id": "praha-prokopske-udoli",
+      "name": "Prokopské údolí",
+      "description": "Naučná stezka a lesní procházka v přírodní rezervaci na Praze 5.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["les", "priroda", "park"],
+        "ageMin": 4,
+        "ageMax": 99,
+        "energyParent": ["medium", "high"],
+        "weather": ["any", "sunny"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["rotation", "sequential"],
+      "coordinates": { "lat": 50.0433, "lng": 14.3572 }
+    },
+    {
+      "id": "praha-staromestske-namesti",
+      "name": "Staroměstské náměstí",
+      "description": "Procházka centrem, orloj a zmrzlina. Krátký výlet do srdce města.",
+      "region": { "kraj": "Praha", "okres": "Praha", "mesto": "Praha" },
+      "tags": {
+        "type": ["mesto", "park"],
+        "ageMin": 3,
+        "ageMax": 99,
+        "energyParent": ["low", "medium"],
+        "weather": ["any", "rain_ok"],
+        "duration": "few_hours"
+      },
+      "conflictResolvers": ["compromise", "overlap"],
+      "coordinates": { "lat": 50.0875, "lng": 14.4213 }
+    }
+  ]
+}
