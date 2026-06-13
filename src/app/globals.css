@@ -4,6 +4,8 @@
   --primary: #5645d4;
   --primary-light: #7c6cf0;
   --primary-pressed: #4534b3;
+  --illustration-stroke: rgba(86, 69, 212, 0.42);
+  --illustration-fill: rgba(86, 69, 212, 0.12);
   --canvas: #ffffff;
   --surface: #f6f5f4;
   --hairline: rgba(255, 255, 255, 0.55);
@@ -293,7 +295,8 @@ body {
   .animate-step,
   .btn-glow,
   .btn-glass,
-  .option-tile {
+  .option-tile,
+  .card-illustration {
     animation: none !important;
     transition: none !important;
   }
@@ -301,5 +304,22 @@ body {
   .btn-glow:hover:not(:disabled),
   .option-tile:hover:not(:disabled) {
     transform: none;
+  }
+}
+
+/* ── Ambient card illustrations ── */
+.card-illustration {
+  z-index: 1;
+  mask-image: linear-gradient(to left, black 55%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 55%, transparent 100%);
+  animation: illustration-fade-in 0.7s ease 0.15s both;
+}
+
+@keyframes illustration-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

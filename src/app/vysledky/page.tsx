@@ -8,8 +8,10 @@ import {
   type RecommendResponse,
 } from "@/components/ResultsView";
 import { Button } from "@/components/ui/Button";
+import { CardIllustration } from "@/components/ui/CardIllustration";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { LoadingSpinner } from "@/components/ui/LoadingSpinner";
+import { ResultsJourneyIllustration } from "@/components/illustrations/ResultsJourneyIllustration";
 import { clearCheckIn, loadCheckIn } from "@/lib/check-in-session";
 import { ArrowRight, RefreshCw, Sparkles } from "@/lib/icons";
 import type { CheckIn } from "@/types";
@@ -92,15 +94,20 @@ export default function VysledkyPage() {
     <main className="mx-auto flex min-h-screen max-w-lg flex-col gap-6 p-4 pb-safe">
       <header className="animate-in-up">
         <GlassCard className="p-5">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/15 text-primary">
-              <Sparkles size={22} aria-hidden="true" />
-            </div>
-            <div>
-              <h1 className="text-[26px] font-bold tracking-tight text-ink">Tvoje tipy</h1>
-              <p className="mt-0.5 text-[15px] text-steel">
-                {result?.recommendations.length ?? 0} tipů pro {checkIn.location.mesto}
-              </p>
+          <div className="relative min-h-[80px]">
+            <CardIllustration position="top-right" size="lg">
+              <ResultsJourneyIllustration className="h-auto w-full" />
+            </CardIllustration>
+            <div className="relative z-10 flex max-w-[62%] items-center gap-3 sm:max-w-[68%]">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary">
+                <Sparkles size={22} aria-hidden="true" />
+              </div>
+              <div>
+                <h1 className="text-[26px] font-bold tracking-tight text-ink">Tvoje tipy</h1>
+                <p className="mt-0.5 text-[15px] text-steel">
+                  {result?.recommendations.length ?? 0} tipů pro {checkIn.location.mesto}
+                </p>
+              </div>
             </div>
           </div>
         </GlassCard>

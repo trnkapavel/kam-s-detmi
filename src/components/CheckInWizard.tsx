@@ -5,7 +5,9 @@ import { useCallback, useState } from "react";
 import { WeatherStep } from "@/components/check-in/WeatherStep";
 import { AnimatedStep } from "@/components/ui/AnimatedStep";
 import { Button } from "@/components/ui/Button";
+import { CardIllustration } from "@/components/ui/CardIllustration";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { StepIllustrationSlot } from "@/components/illustrations/StepIllustration";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { OptionButton } from "@/components/ui/OptionButton";
 import { TextInput } from "@/components/ui/TextInput";
@@ -244,11 +246,16 @@ export function CheckInWizard() {
         <ProgressBar step={step} />
 
         <GlassCard className="flex-1 p-5">
-          <div className="mb-5 flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
-              <StepIcon size={18} strokeWidth={2.5} aria-hidden="true" />
+          <div className="relative mb-5 min-h-[72px]">
+            <CardIllustration position="top-right">
+              <StepIllustrationSlot step={step} />
+            </CardIllustration>
+            <div className="relative z-10 flex max-w-[58%] items-center gap-2.5 sm:max-w-[65%]">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <StepIcon size={18} strokeWidth={2.5} aria-hidden="true" />
+              </div>
+              <h2 className="text-xl font-bold text-ink">{STEP_META[step]?.title}</h2>
             </div>
-            <h2 className="text-xl font-bold text-ink">{STEP_META[step]?.title}</h2>
           </div>
 
           <AnimatedStep stepKey={step}>

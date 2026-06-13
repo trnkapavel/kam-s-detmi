@@ -6,6 +6,7 @@ type GlassCardProps = {
   variant?: "default" | "strong" | "tint";
   animate?: boolean;
   delay?: number;
+  illustration?: ReactNode;
 };
 
 export function GlassCard({
@@ -14,6 +15,7 @@ export function GlassCard({
   variant = "default",
   animate = false,
   delay,
+  illustration,
 }: GlassCardProps) {
   const glassClass =
     variant === "strong" ? "glass-strong" : variant === "tint" ? "glass-tint" : "glass";
@@ -23,9 +25,10 @@ export function GlassCard({
 
   return (
     <div
-      className={`rounded-xl ${glassClass} ${animate ? `animate-in-up ${delayClass}` : ""} ${className}`}
+      className={`relative overflow-hidden rounded-xl ${glassClass} ${animate ? `animate-in-up ${delayClass}` : ""} ${className}`}
     >
-      {children}
+      {illustration}
+      <div className={`relative ${illustration ? "z-10" : ""}`}>{children}</div>
     </div>
   );
 }
